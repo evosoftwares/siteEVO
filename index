@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criamos seu App - Evo</title>
+    <style>
+        /* Reset básico e fontes */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif; /* Use a fonte correta se souber qual é */
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 40px; /* Mais espaço no topo */
+        }
+
+        /* Header - Logo e talvez menu (não visível) */
+        header {
+            display: flex;
+            justify-content: space-between; /* Se houver menu à direita */
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        header .logo img {
+            height: 40px; /* Ajuste o tamanho conforme necessário */
+        }
+
+        /* Seção Principal (Hero) */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px; /* Espaço entre texto e imagem */
+            margin-bottom: 60px;
+        }
+
+        .hero-text {
+            flex-basis: 50%; /* Ocupa metade do espaço */
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .rating img { /* Placeholder para as estrelas e avatares */
+            height: 20px; /* Ajuste */
+            margin-right: 8px;
+        }
+
+        .rating span {
+             margin-left: 5px;
+             font-weight: bold;
+        }
+        .rating .review-count{
+             margin-left: 10px;
+             color: #777;
+        }
+
+
+        h1 {
+            font-size: 3.5em; /* Tamanho grande para "Criamos seu app" */
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px; /* Espaço entre botões */
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #007bff; /* Cor azul do botão */
+            color: white;
+        }
+         .btn-primary:hover {
+             background-color: #0056b3;
+         }
+
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #007bff; /* Cor azul */
+            border: 1px solid #ddd; /* Borda cinza clara */
+        }
+         .btn-secondary:hover {
+             background-color: #f8f9fa;
+         }
+
+        .hero-image {
+            flex-basis: 45%; /* Ocupa um pouco menos da metade */
+            position: relative; /* Para posicionar elementos sobre a imagem */
+            text-align: center; /* Centraliza a imagem se ela for menor que o container */
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px; /* Se a imagem tiver bordas arredondadas */
+        }
+
+        /* Elementos flutuantes sobre a imagem (Ex: Suporte, check verde) */
+         .float-support, .float-check, .float-platforms {
+             position: absolute;
+             background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
+             padding: 8px 12px;
+             border-radius: 20px;
+             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+             font-size: 0.9em;
+         }
+
+         .float-support {
+            top: 20%; /* Ajuste a posição */
+            left: -30px; /* Ajuste a posição */
+             display: flex;
+             align-items: center;
+         }
+          .float-support::before { /* Ícone de relógio - use um ícone real (SVG/FontAwesome) */
+             content: '🕒'; /* Placeholder */
+             margin-right: 5px;
+          }
+
+
+         .float-check {
+             top: 10%; /* Ajuste a posição */
+             right: 10px; /* Ajuste a posição */
+             background-color: #28a745; /* Fundo verde */
+             color: white;
+             width: 40px;
+             height: 40px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             font-size: 1.5em;
+             border-radius: 50%; /* Círculo */
+             padding: 0;
+         }
+         .float-check::before {
+             content: '✓'; /* Checkmark */
+         }
+
+         .float-platforms {
+            top: -20px; /* Acima da imagem */
+            right: 20px; /* Ajuste */
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 10px;
+            background-color: #f8f9fa; /* Fundo cinza claro */
+            border: 1px solid #eee;
+         }
+          .float-platforms img { /* Ícones Android/iOS */
+              height: 20px;
+          }
+
+
+        /* Seção de Logos dos Clientes */
+        .client-logos {
+            margin-top: 50px; /* Espaço acima dos logos */
+            padding-top: 30px;
+            border-top: 1px solid #eee; /* Linha divisória sutil */
+            display: flex;
+            flex-wrap: wrap; /* Permite que os logos quebrem linha */
+            justify-content: space-around; /* Distribui espaço */
+            align-items: center;
+            gap: 20px; /* Espaço entre logos */
+        }
+
+        .client-logos img {
+            height: 30px; /* Ajuste a altura dos logos */
+            filter: grayscale(100%); /* Tons de cinza */
+            opacity: 0.7; /* Levemente transparentes */
+        }
+
+         /* Botão Flutuante Fale Conosco (WhatsApp) */
+         .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366; /* Cor do WhatsApp */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px; /* Arredondado */
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 1000; /* Para ficar sobre outros elementos */
+         }
+          .whatsapp-button::before { /* Ícone do WhatsApp - use um ícone real */
+             content: '💬'; /* Placeholder */
+              font-size: 1.2em;
+          }
+
+
+        /* Responsividade básica */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column; /* Empilha texto e imagem */
+                text-align: center;
+            }
+
+            .hero-text {
+                flex-basis: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero-image {
+                flex-basis: 100%;
+            }
+            .float-support, .float-check, .float-platforms {
+                 position: static; /* Remove posicionamento absoluto em telas pequenas */
+                 margin: 10px auto;
+                 display: inline-block; /* Ou block, dependendo do visual desejado */
+            }
+
+            .buttons {
+                justify-content: center; /* Centraliza botões */
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+             .client-logos img {
+                 height: 25px;
+             }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="URL_DO_SEU_LOGO_EVO.png" alt="Evo Logo">
+            </div>
+            </header>
+
+        <section class="hero-section">
+            <div class="hero-text">
+                <div class="rating">
+                    <img src="URL_AVATARES.png" alt="Avatares">
+                    <img src="URL_ESTRELAS_5.png" alt="5 Estrelas">
+                    <span>5.0</span>
+                    <span class="review-count">Recomendado por +750 Clientes</span>
+                </div>
+                <h1>Criamos seu app</h1>
+                <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real. Somos a empresa que mais cresce no Brasil!</p>
+                <div class="buttons">
+                    <a href="#" class="btn btn-secondary">Falar com especialista</a>
+                    <a href="#" class="btn btn-primary">Quanto custa meu app?</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                 <div class="float-platforms">
+                     <img src="URL_ICONE_ANDROID.png" alt="Android">
+                     <img src="URL_ICONE_IOS.png" alt="iOS">
+                 </div>
+                 <div class="float-support">Suporte em todas as fases</div>
+                 <div class="float-check">✓</div>
+
+                <img src="URL_IMAGEM_MULHER.jpg" alt="Mulher usando celular">
+            </div>
+        </section>
+
+        <section class="client-logos">
+            <img src="URL_LOGO_VITAL.png" alt="Vital Logo">
+            <img src="URL_LOGO_PREFEITURA.png" alt="Prefeitura Logo">
+            <img src="URL_LOGO_COCACOLA.png" alt="Coca-Cola Logo">
+            <img src="URL_LOGO_DIPAGUS.png" alt="Dipagus Logo">
+            <img src="URL_LOGO_GSK.png" alt="GSK Logo">
+            <img src="URL_LOGO_ROCHE.png" alt="Roche Logo">
+            <img src="URL_LOGO_VALE.png" alt="Vale Logo">
+            <img src="URL_LOGO_WELLA.png" alt="Wella Logo">
+        </section>
+
+    </div> <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp-button">
+         Fale Conosco
+     </a>
+
+</body>
+</html>
