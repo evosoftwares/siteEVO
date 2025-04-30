@@ -69,19 +69,12 @@
       background-color: #f8f9fa;
     }
 
-    .card-container {
-      display: flex;
-      gap: 20px; /* Espaçamento entre os cards */
-      flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
-      justify-content: center;
-    }
-
     .card {
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       padding: 30px;
-      width: 280px;
+      width: 300px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -97,6 +90,12 @@
 
     .card p {
       color: #555;
+    }
+
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+      gap: 16px; /* espaço entre as imagens */
     }
 
      footer {
@@ -280,7 +279,8 @@
   <div class="container-graybg">
     <h2>Escolha o Impulso Ideal para Seu Projeto</h2>
     <p>Soluções flexíveis e transparentes para transformar sua ideia em realidade digital, do conceito ao suporte contínuo.</p>
-    <div class="card">
+    <div class="grid-cards">
+      <div class="card">
       <h2>Design de Impacto</h2>
       <p>Interface (UI) e Experiência do Usuário (UX) de alta fidelidade criadas em Flutter. Visualize seu app antes do desenvolvimento completo.</p>
       <p>R$ 11.000</p>
@@ -309,6 +309,7 @@
       <h2>Flexibilidade Total</h2>
       <p>Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria técnica ou para complementar sua equipe.</p>
       <p>Por Hora</p>
+    </div>
     </div>
   </div>
 
