@@ -133,8 +133,16 @@
     }
 
     .container-graybg {
-      text-align: center;
-      background-color: #f8f9fa;
+      max-width: 1200px;
+      margin: 0 auto; /* Centraliza o container na tela */
+      padding: 2rem;
+    }
+    
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      justify-content: center; /* Centraliza os cards dentro do grid */
     }
 
     .card {
@@ -165,13 +173,6 @@
     .card p {
       font-size: 1.0em;
       color: black;
-    }
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      justify-content: center;
-      padding: 2rem;
     }
     i {
       color: #007bff;
