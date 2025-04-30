@@ -11,8 +11,8 @@
             padding: 0;
             background-color: #f4f4f4;
             display: flex;
-            flex-direction: column; /* Organiza as seções verticalmente */
-            align-items: center; /* Centraliza as seções horizontalmente */
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
         }
         .container {
@@ -21,8 +21,7 @@
             border-radius: 8px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             display: flex;
-            max-width: 1200px;
-            margin-bottom: 20px;
+            max-width: 960px;
         }
         .left-section {
             flex: 1;
@@ -105,234 +104,6 @@
         .brands img:hover {
             opacity: 1;
         }
-
-        /* Estilos para a seção "Seu app em todas as telas" */
-        .multi-platform-section {
-            padding: 30px;
-            text-align: left;
-        }
-        .multi-platform-section h2 {
-            color: #333;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        .multi-platform-section h3 {
-            color: #333;
-            font-size: 2em;
-            margin-bottom: 15px;
-        }
-        .multi-platform-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .devices-image {
-            text-align: center;
-        }
-        .devices-image img {
-            max-width: 80%;
-            height: auto;
-        }
-
-        /* Estilos para a seção "Plataforma completa" */
-        .full-platform-section {
-            background-color: #f9f9f9;
-            padding: 40px 30px;
-            text-align: center;
-            width: 100%; /* Garante que a seção ocupe a largura total */
-            margin-bottom: 20px; /* Adiciona espaço abaixo desta seção */
-        }
-        .full-platform-section h2 {
-            color: #333;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        .full-platform-section p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        .full-platform-section .features {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .full-platform-section .feature-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            width: 300px;
-            text-align: left;
-        }
-        .full-platform-section .feature-card img {
-            margin-bottom: 10px;
-        }
-        .full-platform-section .feature-card h3 {
-            color: #333;
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        .full-platform-section .feature-card p {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        /* Estilos para a seção "Rápida Entrega" */
-        .fast-delivery-section {
-            background-color: #fff;
-            padding: 40px 30px;
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .fast-delivery-left {
-            flex: 1;
-            text-align: center;
-        }
-        .fast-delivery-left img {
-            max-width: 80%;
-            height: auto;
-        }
-        .fast-delivery-right {
-            flex: 1;
-            padding-left: 30px;
-        }
-        .fast-delivery-right .overline {
-            color: #007bff;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .fast-delivery-right h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .fast-delivery-right p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .fast-delivery-right .buttons {
-            display: flex;
-        }
-
-        /* Estilos para a seção "Produtividade" */
-        .productivity-section {
-            background-color: #f9f9f9;
-            padding: 40px 30px;
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .productivity-left {
-            flex: 1;
-            padding-right: 30px;
-        }
-        .productivity-left .overline {
-            color: #007bff;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .productivity-left h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .productivity-left p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .productivity-left .buttons {
-            display: flex;
-        }
-        .productivity-right {
-            flex: 1;
-            text-align: center;
-        }
-        .productivity-right img {
-            max-width: 80%;
-            height: auto;
-        }
-
-        /* Estilos para a seção "Flexibilidade" */
-        .flexibility-section {
-            background-color: #fff;
-            padding: 40px 30px;
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .flexibility-left {
-            flex: 1;
-            text-align: center;
-        }
-        .flexibility-left img {
-            max-width: 80%;
-            height: auto;
-        }
-        .flexibility-right {
-            flex: 1;
-            padding-left: 30px;
-        }
-        .flexibility-right .overline {
-            color: #007bff;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .flexibility-right h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .flexibility-right p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .flexibility-right .buttons {
-            display: flex;
-        }
-
-        /* Estilos para a nova seção "Projetos" */
-        .projects-section {
-            background-color: #f9f9f9;
-            padding: 40px 30px;
-            max-width: 1200px;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .projects-section .overline {
-            color: #007bff;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-        .projects-section h2 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        .projects-section p {
-            color: #666;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body>
@@ -360,60 +131,34 @@
                 <img src="https://via.placeholder.com/80/cccccc/fff?Text=Rocha" alt="Rocha">
                 <img src="https://via.placeholder.com/80/cccccc/fff?Text=Vale" alt="Vale">
                 <img src="https://via.placeholder.com/80/cccccc/fff?Text=Wella" alt="Wella">
-            </div>
+                </div>
         </div>
         <div class="right-section">
-            <div class="multi-platform-section">
-                <h2>MULTI PLATAFORMA</h2>
-                <h3>Seu app em <br> todas as telas</h3>
-                <p>Através de um único desenvolvimento nós levamos seu app para Playstore, Appstore e PWA sem cobranças adicionais.</p>
-                <div class="buttons">
-                    <button class="button button-light">Falar com especialista</button>
-                    <button class="button button-primary">Quanto custa meu app?</button>
-                </div>
-            </div>
-            <div class="devices-image">
-                <img src="https://i.imgur.com/seu_link_para_a_imagem_dos_dispositivos.png" alt="Seu app em todas as telas">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/400/abcdef/fff?Text=Mulher+usando+celular" alt="Mulher usando celular">
             </div>
         </div>
-    </div>
-
-    <div class="full-platform-section">
+        <div style="background-color: #f9f9f9; padding: 40px 30px; text-align: center;">
         <h2>A plataforma mais completa para você gerenciar tudo!</h2>
-        <p>Tenha todos os recursos que você precisa em um só lugar. <br> Gerencie seu app de forma fácil e intuitiva.</p>
-        <div class="features">
-            <div class="feature-card">
+        <p style="color: #666; line-height: 1.6; margin-bottom: 30px;">Tenha todos os recursos que você precisa em um só lugar. <br> Gerencie seu app de forma fácil e intuitiva.</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <div style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); width: 300px; text-align: left;">
                 <img src="https://via.placeholder.com/50/007bff/fff?Text=Ícone" alt="Ícone de Gráfico" style="margin-bottom: 10px;">
-                <h3>Acompanhamento em tempo real</h3>
-                <p>Monitore o desempenho do seu app e tome decisões estratégicas com dados atualizados.</p>
+                <h3 style="color: #333; font-size: 1.2em; margin-bottom: 10px;">Acompanhamento em tempo real</h3>
+                <p style="color: #666; font-size: 0.9em;">Monitore o desempenho do seu app e tome decisões estratégicas com dados atualizados.</p>
             </div>
-            <div class="feature-card">
+            <div style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); width: 300px; text-align: left;">
                 <img src="https://via.placeholder.com/50/28a745/fff?Text=Ícone" alt="Ícone de Suporte" style="margin-bottom: 10px;">
-                <h3>Suporte dedicado 24/7</h3>
-                <p>Conte com nossa equipe de especialistas para te ajudar a qualquer momento.</p>
+                <h3 style="color: #333; font-size: 1.2em; margin-bottom: 10px;">Suporte dedicado 24/7</h3>
+                <p style="color: #666; font-size: 0.9em;">Conte com nossa equipe de especialistas para te ajudar a qualquer momento.</p>
             </div>
-            <div class="feature-card">
+            <div style="background-color: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); width: 300px; text-align: left;">
                 <img src="https://via.placeholder.com/50/ffc107/000?Text=Ícone" alt="Ícone de Personalização" style="margin-bottom: 10px;">
-                <h3>Personalização avançada</h3>
-                <p>Customize cada detalhe do seu app para atender às necessidades do seu negócio.</p>
+                <h3 style="color: #333; font-size: 1.2em; margin-bottom: 10px;">Personalização avançada</h3>
+                <p style="color: #666; font-size: 0.9em;">Customize cada detalhe do seu app para atender às necessidades do seu negócio.</p>
             </div>
         </div>
     </div>
-
-    <div class="fast-delivery-section">
-        <div class="fast-delivery-left">
-            <img src="https://via.placeholder.com/400/6699CC/fff?Text=Imagem+Entrega" alt="Imagem de Entrega Rápida">
-        </div>
-        <div class="fast-delivery-right">
-            <div class="overline">VELOCIDADE E RESPOSTA ATÉ A ENTREGA</div>
-            <h2>Rápida Entrega</h2>
-            <p>Na EVO, a rapidez na entrega é um dos nossos maiores diferenciais. Seguimos o planejamento inicial do aplicativo com precisão, garantindo que cada etapa seja concluída no prazo. Nossa abordagem eficiente e organizada assegura que nenhum prazo seja perdido, entregando seu projeto dentro do tempo esperado e com a qualidade que você merece.</p>
-            <div class="buttons">
-                <button class="button button-light">Falar com especialista</button>
-                <button class="button button-primary">Quanto custa meu app?</button>
-            </div>
-        </div>
     </div>
-
-    <div class="productivity-section">
-        <div class="productivity
+</body>
+</html>
