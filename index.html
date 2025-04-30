@@ -53,15 +53,17 @@
       color: rgba(78, 79, 92, 0.678);
       font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     }
-    .imagens {
+    .grid-imagens {
       display: grid;
-      grid-auto-flow: column;
-      gap: 16px;
+      grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+      gap: 16px; /* espaço entre as imagens */
     }
-    .imagens img {
-      width: 150px;
+    .grid-imagens img {
+      width: 100%;
       height: auto;
+      display: block;
     }
+
   
     .whatsapp {
       position: fixed;
@@ -176,10 +178,10 @@
   <div class="center">
     <p class="text-primary text-uppercase small mb-2">Nosso Portfólio</p>
     <h1>Projetos</h1>
-    <div class="imagens">
-      <img src="assets/images/28a59a38.jpg">
-      <img src="assets/images/c4870cdb.jpg">
-      <img src="assets/images/2a53a8ce.jpg">
+    <div class="grid-images">
+      <img src="assets/images/28a59a38.jpg" class="img-fluid">
+      <img src="assets/images/c4870cdb.jpg" class="img-fluid">
+      <img src="assets/images/2a53a8ce.jpg" class="img-fluid">
     </div>
   </div>
   
