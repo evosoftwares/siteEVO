@@ -69,6 +69,29 @@
       background-color: #f8f9fa;
     }
 
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #555;
+    }
+
      footer {
       background-color: #1e73e8;
       color: white;
@@ -250,6 +273,10 @@
   <div class="container-graybg">
     <h2>Escolha o Impulso Ideal para Seu Projeto</h2>
     <p>Soluções flexíveis e transparentes para transformar sua ideia em realidade digital, do conceito ao suporte contínuo.</p>
+    <div class="card">
+      <h2>Título do Card</h2>
+      <p>Esse é um card com animação suave ao passar o mouse.</p>
+    </div>
   </div>
 
   <img src="assets/images/image09.jpg" class="img-fluid">
