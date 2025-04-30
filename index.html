@@ -1,324 +1,419 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criamos seu App - Evo</title>
+    <title>Crie seu app</title>
     <style>
-        /* Reset básico e fontes */
-        body, html {
+        body {
+            font-family: sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif; /* Use a fonte correta se souber qual é */
-            box-sizing: border-box;
-            background-color: #fff;
-            color: #333;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column; /* Organiza as seções verticalmente */
+            align-items: center; /* Centraliza as seções horizontalmente */
+            min-height: 100vh;
         }
-
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-
-        /* Container principal */
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 20px;
-            padding-top: 40px; /* Mais espaço no topo */
-        }
-
-        /* Header - Logo e talvez menu (não visível) */
-        header {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             display: flex;
-            justify-content: space-between; /* Se houver menu à direita */
-            align-items: center;
-            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-bottom: 20px;
         }
-
-        header .logo img {
-            height: 40px; /* Ajuste o tamanho conforme necessário */
+        .left-section {
+            flex: 1;
+            padding-right: 20px;
         }
-
-        /* Seção Principal (Hero) */
-        .hero-section {
+        .right-section {
+            flex: 1;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: space-between;
-            gap: 40px; /* Espaço entre texto e imagem */
-            margin-bottom: 60px;
         }
-
-        .hero-text {
-            flex-basis: 50%; /* Ocupa metade do espaço */
+        .logo {
+            color: #007bff;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
-
         .rating {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
-            font-size: 0.9em;
-            color: #555;
-        }
-
-        .rating img { /* Placeholder para as estrelas e avatares */
-            height: 20px; /* Ajuste */
-            margin-right: 8px;
-        }
-
-        .rating span {
-             margin-left: 5px;
-             font-weight: bold;
-        }
-        .rating .review-count{
-             margin-left: 10px;
-             color: #777;
-        }
-
-
-        h1 {
-            font-size: 3.5em; /* Tamanho grande para "Criamos seu app" */
-            font-weight: bold;
             margin-bottom: 20px;
-            color: #000;
-            line-height: 1.2;
         }
-
-        .hero-text p {
-            font-size: 1.1em;
+        .stars {
+            color: gold;
+            margin-right: 5px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
             line-height: 1.6;
-            color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
-
         .buttons {
             display: flex;
-            gap: 15px; /* Espaço entre botões */
         }
-
-        .btn {
-            padding: 12px 25px;
+        .button {
+            padding: 12px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1em;
-            font-weight: bold;
-            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .button-light {
+            background-color: #eee;
+            color: #333;
+            margin-right: 10px;
+        }
+        .button-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .image-container {
             text-align: center;
         }
-
-        .btn-primary {
-            background-color: #007bff; /* Cor azul do botão */
-            color: white;
-        }
-         .btn-primary:hover {
-             background-color: #0056b3;
-         }
-
-
-        .btn-secondary {
-            background-color: transparent;
-            color: #007bff; /* Cor azul */
-            border: 1px solid #ddd; /* Borda cinza clara */
-        }
-         .btn-secondary:hover {
-             background-color: #f8f9fa;
-         }
-
-        .hero-image {
-            flex-basis: 45%; /* Ocupa um pouco menos da metade */
-            position: relative; /* Para posicionar elementos sobre a imagem */
-            text-align: center; /* Centraliza a imagem se ela for menor que o container */
-        }
-
-        .hero-image img {
+        img {
             max-width: 100%;
             height: auto;
-            border-radius: 10px; /* Se a imagem tiver bordas arredondadas */
+            border-radius: 8px;
         }
-
-        /* Elementos flutuantes sobre a imagem (Ex: Suporte, check verde) */
-         .float-support, .float-check, .float-platforms {
-             position: absolute;
-             background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semi-transparente */
-             padding: 8px 12px;
-             border-radius: 20px;
-             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-             font-size: 0.9em;
-         }
-
-         .float-support {
-            top: 20%; /* Ajuste a posição */
-            left: -30px; /* Ajuste a posição */
-             display: flex;
-             align-items: center;
-         }
-          .float-support::before { /* Ícone de relógio - use um ícone real (SVG/FontAwesome) */
-             content: '🕒'; /* Placeholder */
-             margin-right: 5px;
-          }
-
-
-         .float-check {
-             top: 10%; /* Ajuste a posição */
-             right: 10px; /* Ajuste a posição */
-             background-color: #28a745; /* Fundo verde */
-             color: white;
-             width: 40px;
-             height: 40px;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-             font-size: 1.5em;
-             border-radius: 50%; /* Círculo */
-             padding: 0;
-         }
-         .float-check::before {
-             content: '✓'; /* Checkmark */
-         }
-
-         .float-platforms {
-            top: -20px; /* Acima da imagem */
-            right: 20px; /* Ajuste */
+        .brands {
+            margin-top: 30px;
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 10px;
-            padding: 5px 10px;
-            background-color: #f8f9fa; /* Fundo cinza claro */
-            border: 1px solid #eee;
-         }
-          .float-platforms img { /* Ícones Android/iOS */
-              height: 20px;
-          }
+        }
+        .brands img {
+            max-width: 80px;
+            height: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .brands img:hover {
+            opacity: 1;
+        }
 
+        /* Estilos para a seção "Seu app em todas as telas" */
+        .multi-platform-section {
+            padding: 30px;
+            text-align: left;
+        }
+        .multi-platform-section h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .multi-platform-section h3 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .multi-platform-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .devices-image {
+            text-align: center;
+        }
+        .devices-image img {
+            max-width: 80%;
+            height: auto;
+        }
 
-        /* Seção de Logos dos Clientes */
-        .client-logos {
-            margin-top: 50px; /* Espaço acima dos logos */
-            padding-top: 30px;
-            border-top: 1px solid #eee; /* Linha divisória sutil */
+        /* Estilos para a seção "Plataforma completa" */
+        .full-platform-section {
+            background-color: #f9f9f9;
+            padding: 40px 30px;
+            text-align: center;
+            width: 100%; /* Garante que a seção ocupe a largura total */
+            margin-bottom: 20px; /* Adiciona espaço abaixo desta seção */
+        }
+        .full-platform-section h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        .full-platform-section p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .full-platform-section .features {
             display: flex;
-            flex-wrap: wrap; /* Permite que os logos quebrem linha */
-            justify-content: space-around; /* Distribui espaço */
-            align-items: center;
-            gap: 20px; /* Espaço entre logos */
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-
-        .client-logos img {
-            height: 30px; /* Ajuste a altura dos logos */
-            filter: grayscale(100%); /* Tons de cinza */
-            opacity: 0.7; /* Levemente transparentes */
+        .full-platform-section .feature-card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            width: 300px;
+            text-align: left;
         }
-
-         /* Botão Flutuante Fale Conosco (WhatsApp) */
-         .whatsapp-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366; /* Cor do WhatsApp */
-            color: white;
-            padding: 10px 15px;
-            border-radius: 25px; /* Arredondado */
-            text-decoration: none;
+        .full-platform-section .feature-card img {
+            margin-bottom: 10px;
+        }
+        .full-platform-section .feature-card h3 {
+            color: #333;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .full-platform-section .feature-card p {
+            color: #666;
             font-size: 0.9em;
-            font-weight: bold;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            z-index: 1000; /* Para ficar sobre outros elementos */
-         }
-          .whatsapp-button::before { /* Ícone do WhatsApp - use um ícone real */
-             content: '💬'; /* Placeholder */
-              font-size: 1.2em;
-          }
-
-
-        /* Responsividade básica */
-        @media (max-width: 768px) {
-            .hero-section {
-                flex-direction: column; /* Empilha texto e imagem */
-                text-align: center;
-            }
-
-            .hero-text {
-                flex-basis: 100%;
-                margin-bottom: 30px;
-            }
-
-            .hero-image {
-                flex-basis: 100%;
-            }
-            .float-support, .float-check, .float-platforms {
-                 position: static; /* Remove posicionamento absoluto em telas pequenas */
-                 margin: 10px auto;
-                 display: inline-block; /* Ou block, dependendo do visual desejado */
-            }
-
-            .buttons {
-                justify-content: center; /* Centraliza botões */
-            }
-
-            h1 {
-                font-size: 2.5em;
-            }
-
-             .client-logos img {
-                 height: 25px;
-             }
         }
 
+        /* Estilos para a seção "Rápida Entrega" */
+        .fast-delivery-section {
+            background-color: #fff;
+            padding: 40px 30px;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .fast-delivery-left {
+            flex: 1;
+            text-align: center;
+        }
+        .fast-delivery-left img {
+            max-width: 80%;
+            height: auto;
+        }
+        .fast-delivery-right {
+            flex: 1;
+            padding-left: 30px;
+        }
+        .fast-delivery-right .overline {
+            color: #007bff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .fast-delivery-right h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .fast-delivery-right p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .fast-delivery-right .buttons {
+            display: flex;
+        }
+
+        /* Estilos para a seção "Produtividade" */
+        .productivity-section {
+            background-color: #f9f9f9;
+            padding: 40px 30px;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .productivity-left {
+            flex: 1;
+            padding-right: 30px;
+        }
+        .productivity-left .overline {
+            color: #007bff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .productivity-left h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .productivity-left p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .productivity-left .buttons {
+            display: flex;
+        }
+        .productivity-right {
+            flex: 1;
+            text-align: center;
+        }
+        .productivity-right img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        /* Estilos para a seção "Flexibilidade" */
+        .flexibility-section {
+            background-color: #fff;
+            padding: 40px 30px;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .flexibility-left {
+            flex: 1;
+            text-align: center;
+        }
+        .flexibility-left img {
+            max-width: 80%;
+            height: auto;
+        }
+        .flexibility-right {
+            flex: 1;
+            padding-left: 30px;
+        }
+        .flexibility-right .overline {
+            color: #007bff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .flexibility-right h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .flexibility-right p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .flexibility-right .buttons {
+            display: flex;
+        }
+
+        /* Estilos para a nova seção "Projetos" */
+        .projects-section {
+            background-color: #f9f9f9;
+            padding: 40px 30px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .projects-section .overline {
+            color: #007bff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        .projects-section h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .projects-section p {
+            color: #666;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <header>
-            <div class="logo">
-                <img src="URL_DO_SEU_LOGO_EVO.png" alt="Evo Logo">
+        <div class="left-section">
+            <div class="logo">evo</div>
+            <div class="rating">
+                <span class="stars">★★★★★</span>
+                <span>5.0</span>
+                <span style="color: #999;">Recomendado por +750 clientes</span>
             </div>
-            </header>
-
-        <section class="hero-section">
-            <div class="hero-text">
-                <div class="rating">
-                    <img src="URL_AVATARES.png" alt="Avatares">
-                    <img src="URL_ESTRELAS_5.png" alt="5 Estrelas">
-                    <span>5.0</span>
-                    <span class="review-count">Recomendado por +750 Clientes</span>
-                </div>
-                <h1>Criamos seu app</h1>
-                <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real. Somos a empresa que mais cresce no Brasil!</p>
+            <h1>Criamos seu app</h1>
+            <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real.</p>
+            <p>Somos a empresa que mais cresce no Brasil!</p>
+            <div class="buttons">
+                <button class="button button-light">Falar com especialista</button>
+                <button class="button button-primary">Quanto custa meu app?</button>
+            </div>
+            <div class="brands">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Vital" alt="Vital">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Prefeitura" alt="Prefeitura">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Coca-Cola" alt="Coca-Cola">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Droga Raia" alt="Droga Raia">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=ask" alt="ask">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Rocha" alt="Rocha">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Vale" alt="Vale">
+                <img src="https://via.placeholder.com/80/cccccc/fff?Text=Wella" alt="Wella">
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="multi-platform-section">
+                <h2>MULTI PLATAFORMA</h2>
+                <h3>Seu app em <br> todas as telas</h3>
+                <p>Através de um único desenvolvimento nós levamos seu app para Playstore, Appstore e PWA sem cobranças adicionais.</p>
                 <div class="buttons">
-                    <a href="#" class="btn btn-secondary">Falar com especialista</a>
-                    <a href="#" class="btn btn-primary">Quanto custa meu app?</a>
+                    <button class="button button-light">Falar com especialista</button>
+                    <button class="button button-primary">Quanto custa meu app?</button>
                 </div>
             </div>
-            <div class="hero-image">
-                 <div class="float-platforms">
-                     <img src="URL_ICONE_ANDROID.png" alt="Android">
-                     <img src="URL_ICONE_IOS.png" alt="iOS">
-                 </div>
-                 <div class="float-support">Suporte em todas as fases</div>
-                 <div class="float-check">✓</div>
-
-                <img src="URL_IMAGEM_MULHER.jpg" alt="Mulher usando celular">
+            <div class="devices-image">
+                <img src="https://i.imgur.com/seu_link_para_a_imagem_dos_dispositivos.png" alt="Seu app em todas as telas">
             </div>
-        </section>
+        </div>
+    </div>
 
-        <section class="client-logos">
-            <img src="URL_LOGO_VITAL.png" alt="Vital Logo">
-            <img src="URL_LOGO_PREFEITURA.png" alt="Prefeitura Logo">
-            <img src="URL_LOGO_COCACOLA.png" alt="Coca-Cola Logo">
-            <img src="URL_LOGO_DIPAGUS.png" alt="Dipagus Logo">
-            <img src="URL_LOGO_GSK.png" alt="GSK Logo">
-            <img src="URL_LOGO_ROCHE.png" alt="Roche Logo">
-            <img src="URL_LOGO_VALE.png" alt="Vale Logo">
-            <img src="URL_LOGO_WELLA.png" alt="Wella Logo">
-        </section>
+    <div class="full-platform-section">
+        <h2>A plataforma mais completa para você gerenciar tudo!</h2>
+        <p>Tenha todos os recursos que você precisa em um só lugar. <br> Gerencie seu app de forma fácil e intuitiva.</p>
+        <div class="features">
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/50/007bff/fff?Text=Ícone" alt="Ícone de Gráfico" style="margin-bottom: 10px;">
+                <h3>Acompanhamento em tempo real</h3>
+                <p>Monitore o desempenho do seu app e tome decisões estratégicas com dados atualizados.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/50/28a745/fff?Text=Ícone" alt="Ícone de Suporte" style="margin-bottom: 10px;">
+                <h3>Suporte dedicado 24/7</h3>
+                <p>Conte com nossa equipe de especialistas para te ajudar a qualquer momento.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/50/ffc107/000?Text=Ícone" alt="Ícone de Personalização" style="margin-bottom: 10px;">
+                <h3>Personalização avançada</h3>
+                <p>Customize cada detalhe do seu app para atender às necessidades do seu negócio.</p>
+            </div>
+        </div>
+    </div>
 
-    </div> <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp-button">
-         Fale Conosco
-     </a>
+    <div class="fast-delivery-section">
+        <div class="fast-delivery-left">
+            <img src="https://via.placeholder.com/400/6699CC/fff?Text=Imagem+Entrega" alt="Imagem de Entrega Rápida">
+        </div>
+        <div class="fast-delivery-right">
+            <div class="overline">VELOCIDADE E RESPOSTA ATÉ A ENTREGA</div>
+            <h2>Rápida Entrega</h2>
+            <p>Na EVO, a rapidez na entrega é um dos nossos maiores diferenciais. Seguimos o planejamento inicial do aplicativo com precisão, garantindo que cada etapa seja concluída no prazo. Nossa abordagem eficiente e organizada assegura que nenhum prazo seja perdido, entregando seu projeto dentro do tempo esperado e com a qualidade que você merece.</p>
+            <div class="buttons">
+                <button class="button button-light">Falar com especialista</button>
+                <button class="button button-primary">Quanto custa meu app?</button>
+            </div>
+        </div>
+    </div>
 
-</body>
-</html>
+    <div class="productivity-section">
+        <div class="productivity
