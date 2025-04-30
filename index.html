@@ -20,17 +20,19 @@
     header img {
       height: 40px;
     }
+  
     .container {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: row;
       padding: 40px;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: nowrap;
     }
     .left, .right {
-      flex: 1 1 45%;
-      box-sizing: border-box;
+      width: 50%;
       padding: 20px;
+      box-sizing: border-box;
     }
     .left {
       text-align: left;
@@ -38,6 +40,7 @@
     .right {
       text-align: center;
     }
+  
     .left h1 {
       font-size: 48px;
       font-weight: 800;
@@ -47,6 +50,7 @@
       font-size: 18px;
       margin-bottom: 20px;
     }
+  
     .buttons button {
       padding: 12px 24px;
       margin-right: 10px;
@@ -62,6 +66,7 @@
     .btn-secondary {
       background-color: #f1f1f1;
     }
+  
     .rating {
       display: flex;
       align-items: center;
@@ -71,6 +76,7 @@
       width: 24px;
       margin-right: 4px;
     }
+  
     .clients {
       margin-top: 40px;
       display: flex;
@@ -82,10 +88,12 @@
       height: 40px;
       opacity: 0.6;
     }
+  
     .right img {
       max-width: 100%;
       border-radius: 16px;
     }
+  
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -102,6 +110,16 @@
     .whatsapp img {
       width: 20px;
       margin-right: 8px;
+    }
+  
+    /* Responsivo: stack quando tela for menor */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left, .right {
+        width: 100%;
+      }
     }
   </style>
 </head>
