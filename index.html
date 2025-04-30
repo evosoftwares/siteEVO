@@ -159,6 +159,29 @@
       gap: 16px; /* espaço entre as imagens */
     }
 
+    #whatsapp-sugestoes-botoes {
+        margin-bottom: 20px;
+        display: flex
+    ;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sugestao-btn {
+      background-color: #f1f3f5;
+      color: #495057;
+      border: 1px solid #dee2e6;
+      padding: 8px 12px;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 0.9em;
+      line-height: 1.4;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+      flex-grow: 0;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
      footer {
       background-color: #1e73e8;
       color: white;
@@ -398,8 +421,16 @@
           </div>
         </div>
 
+      <h2>Solicite seu orçamento</h2>
         <div class="container-graybg">
           <p>Olá! Em que posso te ajudar com seu projeto?</p>
+          <div id="whatsapp-sugestoes-botoes">
+            <button type="button" class="sugestao-bnt">App de Marketplace</button>
+            <button type="button" class="sugestao-bnt">Rede Social Nichada</button>
+            <button type="button" class="sugestao-bnt">Aplicativo de Delivery</button>
+            <button type="button" class="sugestao-bnt">App de Serviços (tipo Uber)</button>
+            <button type="button" class="sugestao-bnt">Ferramenta Interna Corporativa</button>
+          </div>
         </div>
     </section>
     
