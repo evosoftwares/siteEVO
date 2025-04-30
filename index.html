@@ -1,1 +1,126 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crie seu app</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            max-width: 960px;
+        }
+        .left-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .right-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo {
+            color: #007bff;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .stars {
+            color: gold;
+            margin-right: 5px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+        }
+        .button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .button-light {
+            background-color: #eee;
+            color: #333;
+            margin-right: 10px;
+        }
+        .button-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        .image-container {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .brands {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .brands img {
+            max-width: 80px;
+            height: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .brands img:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="assets/images/image02.jpg">
+            <img src="assets/images/image06.png">
+            <h1>Criamos seu app</h1>
+            <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real.</p>
+            <p>Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
+            <div class="buttons">
+                <button class="button button-light">Falar com especialista</button>
+                <button class="button button-primary">Quanto custa meu app?</button>
+            </div>
+        <div class="right-section">
+            <img src="assets/images/image12.jpg">
+        </div>
+    </div>
+</body>
+</html>
