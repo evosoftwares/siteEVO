@@ -1,130 +1,132 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crie seu app</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);    
-            display: grid;
-            grid-template-columns: 1fr 1fr; /* Define duas colunas iguais */
-            gap: 20px; /* Espaço entre as colunas */
-            width: 100%; /* Certifique-se de que o container ocupe toda a largura */
-        }
-        .left-section {
-            display: flex;
-            justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-            padding-right: 20px;
-        }
-        .right-section {
-            display: flex;
-            justify-content: center; /* Centraliza o conteúdo na direita */
-            align-items: center;
-        }
-        .logo {
-            color: #007bff;
-            font-size: 2em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .rating {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .stars {
-            color: gold;
-            margin-right: 5px;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 15px;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .buttons {
-            display: flex;
-        }
-        .button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        .button-light {
-            background-color: #eee;
-            color: #333;
-            margin-right: 10px;
-        }
-        .button-primary {
-            background-color: #007bff;
-            color: #fff;
-        }
-        .button:hover {
-            opacity: 0.9;
-        }
-        .image-container {
-            text-align: center;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        .brands {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .brands img {
-            max-width: 80px;
-            height: auto;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-        .brands img:hover {
-            opacity: 1;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page - Evo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+    header img {
+      height: 40px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px;
+      justify-content: center;
+      align-items: center;
+    }
+    .content {
+      max-width: 500px;
+      margin-right: 40px;
+    }
+    .content h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .buttons button {
+      padding: 12px 24px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      color: white;
+    }
+    .btn-secondary {
+      background-color: #f1f1f1;
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .rating img {
+      width: 24px;
+      margin-right: 4px;
+    }
+    .clients {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+    }
+    .clients img {
+      height: 40px;
+      opacity: 0.6;
+    }
+    .image-section img {
+      max-width: 400px;
+      border-radius: 16px;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .whatsapp img {
+      width: 20px;
+      margin-right: 8px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="left-section">
-            <div class="logo"><img src="assets/images/image02.jpg"></div>
-            <img src="assets/images/image06.jpg">
-            <h1>Criamos seu app</h1>
-            <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real.</p>
-            <p>Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
-            <div class="buttons">
-                <button class="button button-light">Falar com especialista</button>
-                <button class="button button-primary">Quanto custa meu app?</button>
-            </div>
-            <img src="assets/images/image12.jpg"
-        </div>
-        <div class="right-section">
-            <img src="assets/images/image14.jpg">
-        </div>
+
+<header>
+    <img src="assets/images/image02.jpg">
+</header>
+
+<div class="container">
+  <div class="content">
+    <div class="rating">
+        <img src="assets/images/image06.png">
     </div>
+    <h1>Criamos seu app</h1>
+    <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
+    <div class="buttons">
+      <button class="btn-secondary">Falar com especialista</button>
+      <button class="btn-primary">Quanto custa meu app?</button>
+    </div>
+    <div class="clients">
+        <img src="assets/images/image12.jpg">
+    </div>
+  </div>
+  <div class="image-section">
+      <img src="assets/images/image14.jpg">
+  </div>
+</div>
+
+<a class="whatsapp" href="#">
+  <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp"> Fale Conosco
+</a>
+
 </body>
 </html>
