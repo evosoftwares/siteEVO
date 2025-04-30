@@ -69,12 +69,19 @@
       background-color: #f8f9fa;
     }
 
+    .card-container {
+      display: flex;
+      gap: 20px; /* Espaçamento entre os cards */
+      flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+      justify-content: center;
+    }
+
     .card {
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       padding: 30px;
-      width: 300px;
+      width: 280px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
