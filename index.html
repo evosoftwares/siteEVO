@@ -137,10 +137,15 @@
       margin: 0 auto; /* Centraliza o container na tela */
       padding: 2rem;
     }
-    
     .grid-cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      justify-content: center; /* Centraliza os cards dentro do grid */
+    }
+    .grid-cards-two {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       justify-content: center; /* Centraliza os cards dentro do grid */
     }
@@ -453,22 +458,24 @@
             <h4>Sob Consulta</h4>
             <a class="btn btn-primary" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" role="button">Solicitar Orçamento</a>
           </div>
-          <div class="card">
-            <i class="material-icons" style="font-size: 36px;">verified_user</i>
-            <h3>Suporte & Manutenção</h3>
-            <p>Garanta a estabilidade, segurança e atualização contínua do seu aplicativo. Nosso time cuida da saúde técnica do seu app por uma taxa mensal fixa.</p>
-            <h4>Plano Mensal</h4>
-            <a class="btn btn-primary" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" role="button">Manter meu App Seguro</a>
-          </div>
-          <div class="card">
-            <i class="material-icons" style="font-size: 36px;">schedule</i>
-            <h3>Flexibilidade Total</h3>
-            <p>Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria técnica ou para complementar sua equipe.</p>
-            <h4>Por Hora</h4>
-            <a class="btn btn-primary" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" role="button">Contratar Horas</a>
-          </div>
+          <div class=""grid-cards-two>
+            <div class="card">
+              <i class="material-icons" style="font-size: 36px;">verified_user</i>
+              <h3>Suporte & Manutenção</h3>
+              <p>Garanta a estabilidade, segurança e atualização contínua do seu aplicativo. Nosso time cuida da saúde técnica do seu app por uma taxa mensal fixa.</p>
+              <h4>Plano Mensal</h4>
+              <a class="btn btn-primary" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" role="button">Manter meu App Seguro</a>
+            </div>
+            <div class="card">
+              <i class="material-icons" style="font-size: 36px;">schedule</i>
+              <h3>Flexibilidade Total</h3>
+              <p>Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria técnica ou para complementar sua equipe.</p>
+              <h4>Por Hora</h4>
+              <a class="btn btn-primary" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" role="button">Contratar Horas</a>
+            </div>
           </div>
         </div>
+      </div>
       
         <div class="container-graybg">
           <p>Olá! Em que posso te ajudar com seu projeto?</p>
