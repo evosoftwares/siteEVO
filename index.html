@@ -23,20 +23,38 @@
       width: 100%;
       z-index: 1000;
     }
-
+    
     nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    nav a {
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 40px; /* Ajuste conforme necessário */
+      background: transparent;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    
+    .nav-links a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-
-    nav a:hover {
+    
+    .nav-links a:hover {
       text-decoration: underline;
     }
 
@@ -192,12 +210,19 @@
   </style>
 </head>
 <body>  
+
   <header>
-    <nav>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#valores-diferenciais">Por quê a EVO</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#clientes">Clientes</a>
+   <nav>
+      <a href="#home" class="logo">
+        <img src="logo.png" alt="Logo EVO" />
+      </a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#diferenciais">Destaques</a>
+        <a href="#contato">Contato</a>
+      </div>
     </nav>
   </header>
 
@@ -313,7 +338,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="clientes">
       <p class="text-primary text-uppercase small mb-2">Nossos Clientes</p>
       <h1>Depoimentos</h1>
       <p>Nosso compromisso com resultados fala por si. Veja o que dizem nossos clientes:</p>
