@@ -14,6 +14,40 @@
       padding: 0;
       color: #333;
     }
+
+    header {
+      background-color: #333;
+      padding: 15px 0;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      padding: 100px 20px;
+      min-height: 100vh;
+    }
+
+    #sobre {}
+
+    #
   
     .container {
       display: flex;
@@ -157,184 +191,193 @@
   </style>
 </head>
 <body>  
-  <a class="whatsapp" href="#">
-    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp"> Fale Conosco
-  </a>
+  <header>
+    <nav>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#carreiras">Carreiras</a>
+      <a href="#contato">Fale conosco</a>
+    </nav>
+  </header>
 
-  <div class="container">
-    <div class="left">
-        <img src="assets/images/image06.png" height="50px">
-      <h1>Criamos seu app</h1>
-      <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
-      </div>
-      <img src="assets/images/image12.jpg" class="img-fluid">
-    </div>
-    <div class="right">
-      <img src="assets/images/image14.jpg" class="img-fluid">
-    </div>
-  </div>
-
-  <div class="center">
-    <p class="text-primary text-uppercase small mb-2">Quem somos</p>
-    <h1>Sobre nós</h1>
-  </div>
-
-  <div class="center">
-    <p class="text-primary text-uppercase small mb-2">O que nos torna únicos</p>
-    <h1>Valores e Diferenciais</h1>
-  </div>
+  <main>
+    <a class="whatsapp" href="#">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp"> Fale Conosco
+    </a>
   
-  <div class="container">
-    <div class="left">
-      <p class="text-primary text-uppercase small mb-2">Multi-plataforma</p>
-      <h2>Seu app em todas as telas</h2>
-      <p>Através de um único desenvolvimento nós levamos seu app para Playstore, Appstore e PWA sem cobranças adicionais.</p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
+    <div class="container">
+      <div class="left">
+          <img src="assets/images/image06.png" height="50px">
+        <h1>Criamos seu app</h1>
+        <p>Seu app em tempo recorde com os melhores profissionais do mercado e você acompanha tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
+        <img src="assets/images/image12.jpg" class="img-fluid">
+      </div>
+      <div class="right">
+        <img src="assets/images/image14.jpg" class="img-fluid">
       </div>
     </div>
-    <div class="right">
-      <img src="assets/images/image13.jpg" class="img-fluid">
-    </div>
-  </div>
   
-  <div class="container">
-    <div class="left">
-      <img src="assets/images/image13.jpg" class="img-fluid">
+    <div id="sobre "class="center">
+      <p class="text-primary text-uppercase small mb-2">Quem somos</p>
+      <h1>Sobre nós</h1>
     </div>
-    <div class="right">
-      <p class="text-primary text-uppercase small mb-2">Velocidade e resposta até entrega</p>
-      <h2>Rápida Entrega</h2>
-      <p>Na EVO, a rapidez na entrega é um dos nossos maiores diferenciais. Seguimos o planejamento inicial do aplicativo com precisão, garantindo que cada etapa seja concluída no prazo. 
-        Nossa abordagem eficiente e organizada assegura que nenhum prazo seja perdido, entregando seu projeto dentro do tempo esperado e com a qualidade que você merece.</p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
+  
+    <div class="center">
+      <p class="text-primary text-uppercase small mb-2">O que nos torna únicos</p>
+      <h1>Valores e Diferenciais</h1>
+    </div>
+    
+    <div class="container">
+      <div class="left">
+        <p class="text-primary text-uppercase small mb-2">Multi-plataforma</p>
+        <h2>Seu app em todas as telas</h2>
+        <p>Através de um único desenvolvimento nós levamos seu app para Playstore, Appstore e PWA sem cobranças adicionais.</p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
+      </div>
+      <div class="right">
+        <img src="assets/images/image13.jpg" class="img-fluid">
       </div>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="left">
-      <p class="text-primary text-uppercase small mb-2">Nossa expertise te faz chegar mais longe</p>
-      <h2>Produtividade</h2>
-      <p>Atualizamos o progresso diariamente, e você, como cliente, pode acompanhar cada etapa do desenvolvimento em tempo real,
-        garantindo total transparência e controle sobre o seu projeto.</p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
+    
+    <div class="container">
+      <div class="left">
+        <img src="assets/images/image13.jpg" class="img-fluid">
+      </div>
+      <div class="right">
+        <p class="text-primary text-uppercase small mb-2">Velocidade e resposta até entrega</p>
+        <h2>Rápida Entrega</h2>
+        <p>Na EVO, a rapidez na entrega é um dos nossos maiores diferenciais. Seguimos o planejamento inicial do aplicativo com precisão, garantindo que cada etapa seja concluída no prazo. 
+          Nossa abordagem eficiente e organizada assegura que nenhum prazo seja perdido, entregando seu projeto dentro do tempo esperado e com a qualidade que você merece.</p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
       </div>
     </div>
-    <div class="right">
-      <img src="assets/images/image13.jpg" class="img-fluid">
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="left">
-      <img src="assets/images/image13.jpg" class="img-fluid">
-    </div>
-    <div class="right">
-      <p class="text-primary text-uppercase small mb-2">Agilidade e Adaptabilidade</p>
-      <h2>Flexibilidade</h2>
-      <p>Nossa metodologia combina flexibilidade com controle e planejamento estratégico. Isso nos permite adaptar o desenvolvimento às suas necessidades, sem comprometer prazos ou qualidade. 
-        Com esse equilíbrio, garantimos um processo ágil e eficiente, sem nos tornarmos engessados em nenhuma etapa do projeto.</p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
+  
+    <div class="container">
+      <div class="left">
+        <p class="text-primary text-uppercase small mb-2">Nossa expertise te faz chegar mais longe</p>
+        <h2>Produtividade</h2>
+        <p>Atualizamos o progresso diariamente, e você, como cliente, pode acompanhar cada etapa do desenvolvimento em tempo real,
+          garantindo total transparência e controle sobre o seu projeto.</p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
+      </div>
+      <div class="right">
+        <img src="assets/images/image13.jpg" class="img-fluid">
       </div>
     </div>
-  </div>
-
-  <div class="center">
-    <p class="text-primary text-uppercase small mb-2">Nosso Portfólio</p>
-    <h1>Projetos</h1>
-    <p>
-      Ao longo de 15 anos, depois de mais de 1.000 projetos, acumulamos vasta experiência em soluções inovadoras, sempre focados em superar expectativas e entregar resultados consistentes. 
-      Colaboramos com clientes de diferentes setores, enfrentando desafios que nos permitiram evoluir e consolidar práticas eficientes. 
-      Com investimentos contínuos em tecnologia e desenvolvimento de talentos, seguimos preparados para novos desafios, mantendo nossa paixão por inovação.
-    </p>
-    <div class="grid-images">
-      <img src="assets/images/28a59a38.jpg" class="img-fluid">
-      <img src="assets/images/c4870cdb.jpg" class="img-fluid">
-      <img src="assets/images/2a53a8ce.jpg" class="img-fluid">
-      <img src="assets/images/4cd98fcc.jpg" class="img-fluid">
-      <img src="assets/images/09732275.jpg" class="img-fluid">
-      <img src="assets/images/947705e0.jpg" class="img-fluid">
-    </div>
-  </div>
-
-  <div class="center">
-    <p class="text-primary text-uppercase small mb-2">Nossos Clientes</p>
-    <h1>Depoimentos</h1>
-    <p>Nosso compromisso com resultados fala por si. Veja o que dizem nossos clientes:</p>
-  </div>
-
-  <div class="container">
-    <div class="left">
-      <h2>Pontuação de qualidade entre empresas</h2>
-      <p>Os aplicativos desenvolvidos pela EVO atingem pontuações de otimização nas lojas que se destacam no mercado. 
-        Esse resultado é fruto de uma soma entre performance técnica, design funcional e experiência do usuário cuidadosamente planejada.</p>
-      <div>
-        <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
-        <button class="btn btn-primary">Quanto custa meu app?</button>
+  
+    <div class="container">
+      <div class="left">
+        <img src="assets/images/image13.jpg" class="img-fluid">
+      </div>
+      <div class="right">
+        <p class="text-primary text-uppercase small mb-2">Agilidade e Adaptabilidade</p>
+        <h2>Flexibilidade</h2>
+        <p>Nossa metodologia combina flexibilidade com controle e planejamento estratégico. Isso nos permite adaptar o desenvolvimento às suas necessidades, sem comprometer prazos ou qualidade. 
+          Com esse equilíbrio, garantimos um processo ágil e eficiente, sem nos tornarmos engessados em nenhuma etapa do projeto.</p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
       </div>
     </div>
-    <div class="right">
-      <img src="assets/images/image01.jpg" class="img-fluid">
+  
+    <div class="center">
+      <p class="text-primary text-uppercase small mb-2">Nosso Portfólio</p>
+      <h1>Projetos</h1>
+      <p>
+        Ao longo de 15 anos, depois de mais de 1.000 projetos, acumulamos vasta experiência em soluções inovadoras, sempre focados em superar expectativas e entregar resultados consistentes. 
+        Colaboramos com clientes de diferentes setores, enfrentando desafios que nos permitiram evoluir e consolidar práticas eficientes. 
+        Com investimentos contínuos em tecnologia e desenvolvimento de talentos, seguimos preparados para novos desafios, mantendo nossa paixão por inovação.
+      </p>
+      <div class="grid-images">
+        <img src="assets/images/28a59a38.jpg" class="img-fluid">
+        <img src="assets/images/c4870cdb.jpg" class="img-fluid">
+        <img src="assets/images/2a53a8ce.jpg" class="img-fluid">
+        <img src="assets/images/4cd98fcc.jpg" class="img-fluid">
+        <img src="assets/images/09732275.jpg" class="img-fluid">
+        <img src="assets/images/947705e0.jpg" class="img-fluid">
+      </div>
     </div>
-  </div>
-
-  <div class="container-graybg">
-    <h2>Escolha o Impulso Ideal para Seu Projeto</h2>
-    <p>Soluções flexíveis e transparentes para transformar sua ideia em realidade digital, do conceito ao suporte contínuo.</p>
-    <div class="grid-cards">
+  
+    <div class="center">
+      <p class="text-primary text-uppercase small mb-2">Nossos Clientes</p>
+      <h1>Depoimentos</h1>
+      <p>Nosso compromisso com resultados fala por si. Veja o que dizem nossos clientes:</p>
+    </div>
+  
+    <div class="container">
+      <div class="left">
+        <h2>Pontuação de qualidade entre empresas</h2>
+        <p>Os aplicativos desenvolvidos pela EVO atingem pontuações de otimização nas lojas que se destacam no mercado. 
+          Esse resultado é fruto de uma soma entre performance técnica, design funcional e experiência do usuário cuidadosamente planejada.</p>
+        <div>
+          <button class="btn btn-light shadow-sm btn-custom">Falar com especialista</button>
+          <button class="btn btn-primary">Quanto custa meu app?</button>
+        </div>
+      </div>
+      <div class="right">
+        <img src="assets/images/image01.jpg" class="img-fluid">
+      </div>
+    </div>
+  
+    <div class="container-graybg">
+      <h2>Escolha o Impulso Ideal para Seu Projeto</h2>
+      <p>Soluções flexíveis e transparentes para transformar sua ideia em realidade digital, do conceito ao suporte contínuo.</p>
+      <div class="grid-cards">
+        <div class="card">
+        <h3>Design de Impacto</h3>
+        <p>Interface (UI) e Experiência do Usuário (UX) de alta fidelidade criadas em Flutter. Visualize seu app antes do desenvolvimento completo.</p>
+        <p>R$ 11.000</p>
+      </div>
       <div class="card">
-      <h3>Design de Impacto</h3>
-      <p>Interface (UI) e Experiência do Usuário (UX) de alta fidelidade criadas em Flutter. Visualize seu app antes do desenvolvimento completo.</p>
-      <p>R$ 11.000</p>
+        <h3>Lançamento Rápido (MVP)</h3>
+        <p>Desenvolvimento completo do seu Produto Mínimo Viável (MVP). Da ideia ao aplicativo funcional e pronto para os primeiros usuários.</p>
+        <p>R$ 19.990</p>
+      </div>
+      <div class="card">
+        <h3>Evolução Estratégica</h3>
+        <p>Ideal para escalar seu MVP ou app existente. Adicionamos novas funcionalidades chave, otimizamos performance e preparamos para o crescimento.</p>
+        <p>Sob Consulta</p>
+      </div>
+      <div class="card">
+        <h3>Projeto Sob Medida</h3>
+        <p>Planejamos e desenvolvemos seu app do zero com escopo, prazo e investimento definidos juntos. Clareza total do início ao fim.</p>
+        <p>Sob Consulta</p>
+      </div>
+      <div class="card">
+        <h3>Suporte & Manutenção</h3>
+        <p>Garanta a estabilidade, segurança e atualização contínua do seu aplicativo. Nosso time cuida da saúde técnica do seu app por uma taxa mensal fixa.</p>
+        <p>Plano Mensal</p>
+      </div>
+      <div class="card">
+        <h3>Flexibilidade Total</h3>
+        <p>Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria técnica ou para complementar sua equipe.</p>
+        <p>Por Hora</p>
+      </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Lançamento Rápido (MVP)</h3>
-      <p>Desenvolvimento completo do seu Produto Mínimo Viável (MVP). Da ideia ao aplicativo funcional e pronto para os primeiros usuários.</p>
-      <p>R$ 19.990</p>
+  
+    <img src="assets/images/image09.jpg" class="img-fluid">
+  </main>
+  
+  <footer>
+      <img src="assets/images/evologo.jpg">
+    <div class="footer-bottom">
+      © EVO CLOUD APPS LTDA. Todos os direitos reservados.
     </div>
-    <div class="card">
-      <h3>Evolução Estratégica</h3>
-      <p>Ideal para escalar seu MVP ou app existente. Adicionamos novas funcionalidades chave, otimizamos performance e preparamos para o crescimento.</p>
-      <p>Sob Consulta</p>
-    </div>
-    <div class="card">
-      <h3>Projeto Sob Medida</h3>
-      <p>Planejamos e desenvolvemos seu app do zero com escopo, prazo e investimento definidos juntos. Clareza total do início ao fim.</p>
-      <p>Sob Consulta</p>
-    </div>
-    <div class="card">
-      <h3>Suporte & Manutenção</h3>
-      <p>Garanta a estabilidade, segurança e atualização contínua do seu aplicativo. Nosso time cuida da saúde técnica do seu app por uma taxa mensal fixa.</p>
-      <p>Plano Mensal</p>
-    </div>
-    <div class="card">
-      <h3>Flexibilidade Total</h3>
-      <p>Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria técnica ou para complementar sua equipe.</p>
-      <p>Por Hora</p>
-    </div>
-    </div>
-  </div>
-
-  <img src="assets/images/image09.jpg" class="img-fluid">
-
+  </footer>
 </body>
-
-<footer>
-    <img src="assets/images/evologo.jpg">
-  <div class="footer-bottom">
-    © EVO CLOUD APPS LTDA. Todos os direitos reservados.
-  </div>
-</footer>
 
 </html>
