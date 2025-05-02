@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Evo - Desenvolvimento de Apps Responsivo</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Evo - Desenvolvimento de Apps Responsivo</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -16,8 +18,8 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       color: #212529;
-      /* Padding ajustado dinamicamente se header for 'fixed-top' */
-      /* padding-top: 75px; Removido - Será aplicado se usar .fixed-top */
+      /* Padding ajustado dinamicamente se header for 'fixed-top' ou 'sticky-top' */
+      /* padding-top: 75px; */
       line-height: 1.6;
     }
 
@@ -30,51 +32,33 @@
     h3 { font-size: calc(1.275rem + 0.3vw); }
     @media (min-width: 1200px) { h3 { font-size: 1.75rem; } }
     p { margin-bottom: 1.25rem; color: #5a5a5a; }
-    p.lead { font-size: 1.25rem; font-weight: 400;} /* Estilo para parágrafo principal */
+    p.lead { font-size: 1.25rem; font-weight: 400;}
 
     a { transition: color 0.2s ease-in-out; }
 
     /* --- Header / Navbar --- */
-    /* Adicionando 'sticky-top' para header que fica fixo ao rolar para baixo */
     .navbar {
       padding-top: 15px;
       padding-bottom: 15px;
       background-color: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .navbar-brand img {
-      height: 45px;
-      background: transparent;
-    }
+    .navbar-brand img { height: 45px; background: transparent; }
     .navbar-nav .nav-link {
-      color: #343a40;
-      font-weight: 600;
-      position: relative;
-      padding-top: 0.5rem; /* Ajuste para alinhar melhor */
-      padding-bottom: 0.5rem;
-      margin-left: 1rem; /* Espaçamento entre links */
+      color: #343a40; font-weight: 600; position: relative;
+      padding-top: 0.5rem; padding-bottom: 0.5rem; margin-left: 1rem;
     }
     .navbar-nav .nav-link::after {
-       content: '';
-       position: absolute;
-       width: 0;
-       height: 2px;
-       bottom: 5px; /* Ajusta posição da linha */
-       left: 0.5rem; /* Ajusta início da linha */
-       right: 0.5rem;
-       background-color: var(--bs-primary);
+       content: ''; position: absolute; width: 0; height: 2px; bottom: 5px;
+       left: 0.5rem; right: 0.5rem; background-color: var(--bs-primary);
        transition: width 0.3s ease-in-out;
     }
-     .navbar-nav .nav-link:hover,
-     .navbar-nav .nav-link.active { /* Estilo para link ativo */
-       color: var(--bs-primary);
-     }
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active { color: var(--bs-primary); }
     .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: calc(100% - 1rem); /* Ajusta largura da linha */
-    }
-    .navbar-toggler { border: none; } /* Remove borda do botão hamburguer */
-    .navbar-toggler:focus { box-shadow: none; } /* Remove outline azul */
+    .navbar-nav .nav-link.active::after { width: calc(100% - 1rem); }
+    .navbar-toggler { border: none; }
+    .navbar-toggler:focus { box-shadow: none; }
 
     /* --- Botão WhatsApp --- */
     .whatsapp {
@@ -87,30 +71,24 @@
     .whatsapp img { width: 24px; margin-right: 10px; }
 
     /* --- Seções e Fundos --- */
-    section { padding-left: 5%; padding-right: 5%; } /* Padding lateral */
-    /* Padding vertical via classes .py-5 no HTML */
+    section { padding-left: 5%; padding-right: 5%; }
     .bg-light-gray { background-color: var(--evo-light-gray) !important; }
 
     /* --- Botões --- */
     .btn {
       padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600;
-      transition: all 0.3s ease; border: none;
-      /* Sombra removida por padrão, adicionada no hover */
-      box-shadow: none;
+      transition: all 0.3s ease; border: none; box-shadow: none;
     }
     .btn-primary {
       background-image: linear-gradient(to right, var(--bs-primary) 0%, #0a58ca 100%);
-      color: white;
-      /* Sombra leve apenas no primário */
-      box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.2);
+      color: white; box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.2);
     }
     .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1); /* Sombra aparece no hover */
+      transform: translateY(-3px); box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
     }
     .btn-primary:hover {
       background-image: linear-gradient(to right, #0a58ca 0%, var(--bs-primary) 100%);
-      box-shadow: 0 7px 20px rgba(var(--bs-primary-rgb), 0.3); /* Sombra mais forte no hover */
+      box-shadow: 0 7px 20px rgba(var(--bs-primary-rgb), 0.3);
     }
     .btn-light { background-color: #ffffff; color: #343a40; border: 1px solid #dee2e6; }
     .btn-light:hover { background-color: #f8f9fa; border-color: #ced4da;}
@@ -118,7 +96,7 @@
     /* --- Cards --- */
     .card {
       border: 1px solid #dee2e6; border-radius: 15px;
-      box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05) !important; /* Sombra ainda mais sutil */
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05) !important;
       transition: all 0.3s ease; background-color: #fff;
     }
     .card:hover { transform: translateY(-8px); box-shadow: 0 1rem 1.5rem rgba(0,0,0,.1) !important; }
@@ -128,15 +106,11 @@
     .card i.material-icons { color: var(--bs-primary); font-size: 3.5rem; margin-bottom: 1rem; display: block; padding: 0; }
 
     /* --- Grid de Imagens (Portfólio) --- */
-    .grid-imagens {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
-    }
+    .grid-imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
     .grid-imagens img {
       width: 100%; height: auto; display: block; border-radius: 12px;
-      /* Sombra removida */
-      box-shadow: none;
-      transition: transform 0.3s ease;
-      border: 1px solid #eee; /* Adiciona borda sutil para compensar ausência de sombra */
+      box-shadow: none; /* Sombra removida */
+      transition: transform 0.3s ease; border: 1px solid #eee;
     }
     .grid-imagens img:hover { transform: scale(1.03); }
 
@@ -149,6 +123,29 @@
     .carousel-control-prev, .carousel-control-next { width: auto; opacity: 0.8; transition: opacity 0.3s ease; }
     .carousel-control-prev:hover, .carousel-control-next:hover { opacity: 1; }
     .custom-icon { font-size: 2.5rem; color: var(--bs-primary); background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; padding: 8px; }
+
+    /* --- Seção Orçamento - Botões de Sugestão --- */
+    .btn-suggestion {
+        background-color: #f8f9fa; /* Cinza claro (bg-light) */
+        color: #495057; /* Cinza escuro */
+        border: 1px solid #dee2e6; /* Borda sutil */
+        border-radius: 50px; /* Formato pílula */
+        padding: 0.35rem 0.9rem; /* Padding ajustado */
+        font-size: 0.875rem; /* Tamanho da fonte */
+        font-weight: 500; /* Peso da fonte */
+        transition: all 0.2s ease-in-out;
+        box-shadow: none; /* Garante sem sombra */
+        margin: 0.25rem; /* Margem ajustada */
+    }
+    .btn-suggestion:hover {
+        background-color: #e9ecef; /* Cor ligeiramente mais escura no hover */
+        border-color: #adb5bd;
+        color: #212529;
+        transform: none; /* Remove efeito de subir */
+        box-shadow: none; /* Garante sem sombra no hover */
+    }
+    /* Textarea com borda arredondada padrão do BS */
+    #whatsapp-sugestao-input.form-control { border-radius: 0.375rem; } /* Garante borda padrão BS */
 
     /* --- Footer --- */
     footer {
@@ -167,60 +164,50 @@
     /* --- Imagem Final --- */
     .final-image-container img {
       display: block; margin: 30px auto; max-width: 700px; width: 100%; height: auto;
-      border-radius: 15px;
-      /* Sombra removida */
-      box-shadow: none;
-      border: 1px solid #eee; /* Adiciona borda sutil */
+      border-radius: 15px; box-shadow: none; /* Sombra removida */
+      border: 1px solid #eee;
     }
     .instagram-link { display: block; text-align: center; margin-top: 1rem; margin-bottom: 2rem; font-weight: 600; color: var(--bs-primary); text-decoration: none; font-size: 1.1rem; }
     .instagram-link:hover { text-decoration: underline; color: #0a58ca; }
 
-     /* --- Estilos Responsivos Adicionais (Exemplos) --- */
+     /* --- Estilos Responsivos Adicionais --- */
      @media (max-width: 991.98px) {
-        /* Centraliza links no menu mobile */
        .navbar-nav { text-align: center; }
-       .navbar-nav .nav-link { margin-left: 0; display: inline-block; } /* Ajusta links no mobile */
-        /* Reduz espaçamento do footer no mobile */
+       .navbar-nav .nav-link { margin-left: 0; display: inline-block; }
        footer { padding-top: 2rem; padding-bottom: 2rem;}
        .footer-links h5 { margin-top: 1.5rem; }
      }
      @media (max-width: 767.98px) {
-       /* Reduz ainda mais o tamanho das fontes se necessário */
        h1 { font-size: calc(1.325rem + 1.2vw); }
        h2 { font-size: calc(1.275rem + 0.6vw); }
-       /* Centraliza colunas de texto que estavam à esquerda */
        .text-lg-start { text-align: center !important; }
        .justify-content-lg-start { justify-content: center !important;}
-       .btn-group-lg > .btn { padding: .5rem 1rem; font-size: 1rem; } /* Ajusta tamanho botões */
-        .final-image-container img { max-width: 90%; } /* Ajusta imagem final */
+       /* .btn-group-lg > .btn { padding: .5rem 1rem; font-size: 1rem; } */ /* Removido se não houver btn-group-lg */
+       .final-image-container img { max-width: 90%; }
+       /* Ajusta botões de sugestão para quebrar melhor */
+       #orcamento .mb-3 > .btn-suggestion { display: inline-block; }
      }
 
   </style>
 </head>
 <body>
 
-  <header class="sticky-top"> <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm"> <div class="container"> <a class="navbar-brand" href="#"> <img src="assets/images/image02.jpg" alt="Logotipo EVO Softwares" />
+  <header class="sticky-top">
+   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+     <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="assets/images/image02.jpg" alt="Logotipo EVO Softwares" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#sobre">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#valores-diferenciais">Diferenciais</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projetos">Portfólio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#clientes">Clientes</a>
-                </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#orcamento">Orçamento</a>
-                </li>
+                <li class="nav-item"> <a class="nav-link" href="#sobre">Sobre</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#valores-diferenciais">Diferenciais</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#projetos">Portfólio</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#clientes">Clientes</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#orcamento">Orçamento</a> </li>
             </ul>
         </div>
      </div>
@@ -234,13 +221,13 @@
 
    <section id="top" class="py-5 bg-white">
      <div class="container">
-       <div class="row align-items-center gy-4"> <div class="col-lg-6 text-center text-lg-start">
+       <div class="row align-items-center gy-4">
+          <div class="col-lg-6 text-center text-lg-start">
               <img src="assets/images/image06.png" alt="Ícones representando apps em Android, iOS e Web (PWA)" class="mb-3" style="height: 50px;">
               <h1 class="mb-3">Criamos seu app <span class="text-primary">inovador</span></h1>
-              <p class="lead mb-4">
-                  Seu app em tempo recorde com os melhores profissionais. Acompanhe tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong>
-              </p>
-              <div class="d-flex gap-2 justify-content-center justify-content-lg-start mb-4 flex-wrap"> <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" target="_blank" rel="noopener noreferrer" role="button">Falar com especialista</a>
+              <p class="lead mb-4">Seu app em tempo recorde com os melhores profissionais. Acompanhe tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
+              <div class="d-flex gap-2 justify-content-center justify-content-lg-start mb-4 flex-wrap">
+                 <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" target="_blank" rel="noopener noreferrer" role="button">Falar com especialista</a>
                  <a href="#orcamento" class="btn btn-primary" role="button">Quanto custa meu app</a>
               </div>
                <img src="assets/images/image12.jpg" class="img-fluid mt-4 rounded d-none d-lg-block" alt="Depoimentos e avaliações positivas de clientes da EVO Softwares">
@@ -263,33 +250,12 @@
                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                  </div>
                  <div class="carousel-inner">
-                     <div class="carousel-item active">
-                         <div class="p-3 p-md-5 text-center col-lg-8 mx-auto">
-                             <h3 class="mb-3">Manifesto EVO</h3>
-                             <p>Acreditamos que toda grande ideia merece brilhar no mundo digital. Nascemos da paixão por tecnologia e da vontade de democratizar a inovação, sem barreiras. Com agilidade na mente e experiência no código, transformamos conceitos em aplicativos mobile que funcionam, encantam e geram valor real. Somos parceiros na sua jornada, focados em entregar o máximo resultado com o mínimo de complicação (e o melhor custo!). O futuro é mobile. A EVO é o seu atalho para ele.</p>
-                         </div>
-                     </div>
-                     <div class="carousel-item">
-                         <div class="p-3 p-md-5 text-center col-lg-8 mx-auto">
-                             <h3 class="mb-3">Como Trabalhamos</h3>
-                             <p><strong>Ideia Chega:</strong> Você traz o sonho. <br><strong>Experiência Entra:</strong> Mergulhamos fundo (+15 anos!) para refinar e planejar. <br><strong>Agilidade em Ação:</strong> Sprints, feedback constante, zero enrolação. <br><strong>Código com Cérebro:</strong> A melhor solução técnica pensando no seu bolso e no usuário. <br><strong>Lançamento & Além:</strong> Entregamos e continuamos parceiros na evolução.</p>
-                         </div>
-                     </div>
-                     <div class="carousel-item">
-                         <div class="p-3 p-md-5 text-center col-lg-8 mx-auto">
-                             <h3 class="mb-3">Nossa Metáfora</h3>
-                             <p>A EVO é como um <strong>Chef de Cozinha Tech:</strong> Você traz os ingredientes (sua ideia), nós usamos nossa técnica apurada (experiência), temperos secretos (agilidade) e os melhores utensílios (tecnologia) para preparar um prato (app) delicioso e com apresentação impecável, sem desperdiçar nada (custo-benefício).</p>
-                         </div>
-                     </div>
+                     <div class="carousel-item active"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Manifesto EVO</h3> <p>Acreditamos que toda grande ideia merece brilhar no mundo digital. Nascemos da paixão por tecnologia e da vontade de democratizar a inovação, sem barreiras. Com agilidade na mente e experiência no código, transformamos conceitos em aplicativos mobile que funcionam, encantam e geram valor real. Somos parceiros na sua jornada, focados em entregar o máximo resultado com o mínimo de complicação (e o melhor custo!). O futuro é mobile. A EVO é o seu atalho para ele.</p> </div> </div>
+                     <div class="carousel-item"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Como Trabalhamos</h3> <p><strong>Ideia Chega:</strong> Você traz o sonho. <br><strong>Experiência Entra:</strong> Mergulhamos fundo (+15 anos!) para refinar e planejar. <br><strong>Agilidade em Ação:</strong> Sprints, feedback constante, zero enrolação. <br><strong>Código com Cérebro:</strong> A melhor solução técnica pensando no seu bolso e no usuário. <br><strong>Lançamento & Além:</strong> Entregamos e continuamos parceiros na evolução.</p> </div> </div>
+                     <div class="carousel-item"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Nossa Metáfora</h3> <p>A EVO é como um <strong>Chef de Cozinha Tech:</strong> Você traz os ingredientes (sua ideia), nós usamos nossa técnica apurada (experiência), temperos secretos (agilidade) e os melhores utensílios (tecnologia) para preparar um prato (app) delicioso e com apresentação impecável, sem desperdiçar nada (custo-benefício).</p> </div> </div>
                  </div>
-                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                     <i class="material-icons custom-icon">arrow_back_ios</i>
-                     <span class="visually-hidden">Anterior</span>
-                 </button>
-                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                     <i class="material-icons custom-icon">arrow_forward_ios</i>
-                     <span class="visually-hidden">Próximo</span>
-                 </button>
+                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"> <i class="material-icons custom-icon">arrow_back_ios</i> <span class="visually-hidden">Anterior</span> </button>
+                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"> <i class="material-icons custom-icon">arrow_forward_ios</i> <span class="visually-hidden">Próximo</span> </button>
              </div>
         </div>
    </section>
@@ -298,54 +264,17 @@
         <div class="container">
             <p class="text-primary text-uppercase small mb-2 text-center">O que nos torna únicos</p>
             <h2 class="text-center mb-5">Nossos <span class="text-primary">Diferenciais</span></h2>
-            <div class="row align-items-center gy-5"> <div class="col-lg-6">
-                    <p class="text-primary text-uppercase small mb-2">Multi-plataforma</p>
-                    <h3 class="mb-3">Seu app em todas as telas</h3>
-                    <p>Através de um único desenvolvimento nativo-compilado (Flutter/React Native), levamos seu app para Play Store (Android), App Store (iOS) e Web (PWA) sem custos adicionais exorbitantes.</p>
-                    <div class="d-flex gap-2 flex-wrap">
-                        <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20desenvolvimento%20multiplataforma" target="_blank" rel="noopener noreferrer" role="button">Saiba Mais</a>
-                        <a href="#orcamento" class="btn btn-primary" role="button">Ver Preços</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="assets/images/placeholder-multiplataforma.jpg" class="img-fluid rounded" alt="Ilustração de app rodando em celular, tablet e navegador web">
-                </div>
-
-                <div class="col-lg-6 order-lg-2"> <p class="text-primary text-uppercase small mb-2">Velocidade e Foco</p>
-                     <h3 class="mb-3">Entrega Ágil e Precisa</h3>
-                     <p>Seguimos o planejamento com precisão, garantindo que cada etapa seja concluída no prazo. Nossa abordagem eficiente e organizada assegura a entrega do seu projeto no tempo esperado e com a qualidade EVO.</p>
-                     <div class="d-flex gap-2 flex-wrap">
-                         <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20como%20funciona%20a%20entrega%20%C3%A1gil%20da%20EVO%3F" target="_blank" rel="noopener noreferrer" role="button">Como Funciona?</a>
-                         <a href="#orcamento" class="btn btn-primary" role="button">Ver Preços</a>
-                     </div>
-                 </div>
-                 <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-velocidade.jpg" class="img-fluid rounded" alt="Gráfico de velocímetro ou calendário indicando rapidez">
-                 </div>
-
-                 <div class="col-lg-6">
-                     <p class="text-primary text-uppercase small mb-2">Transparência Total</p>
-                     <h3 class="mb-3">Acompanhamento Real-Time</h3>
-                     <p>Atualizamos o progresso diariamente em ferramentas visuais (como Trello/Jira). Você acompanha cada etapa do desenvolvimento em tempo real, garantindo total transparência e controle sobre o seu projeto.</p>
-                     <div class="d-flex gap-2 flex-wrap">
-                         <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20como%20posso%20acompanhar%20meu%20projeto%3F" target="_blank" rel="noopener noreferrer" role="button">Ver Ferramentas</a>
-                         <a href="#orcamento" class="btn btn-primary" role="button">Ver Preços</a>
-                     </div>
-                 </div>
-                 <div class="col-lg-6 text-center">
-                     <img src="assets/images/placeholder-produtividade.jpg" class="img-fluid rounded" alt="Painel de controle ou dashboard mostrando progresso e tarefas">
-                 </div>
-
-                 <div class="col-lg-6 order-lg-2"> <p class="text-primary text-uppercase small mb-2">Metodologia Híbrida</p>
-                      <h3 class="mb-3">Flexibilidade Estratégica</h3>
-                      <p>Combinamos flexibilidade ágil com controle e planejamento estratégico. Adaptamos o desenvolvimento às suas necessidades sem comprometer prazos ou qualidade, garantindo um processo eficiente sem engessar o projeto.</p>
-                       <div class="d-flex gap-2 flex-wrap">
-                           <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20qual%20a%20metodologia%20de%20desenvolvimento%20da%20EVO%3F" target="_blank" rel="noopener noreferrer" role="button">Nossa Metodologia</a>
-                           <a href="#orcamento" class="btn btn-primary" role="button">Ver Preços</a>
-                       </div>
-                  </div>
-                  <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-flexibilidade.jpg" class="img-fluid rounded" alt="Diagrama com setas flexíveis ou peças de quebra-cabeça se encaixando">
-                  </div>
-            </div> </div>
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6"> <p class="text-primary text-uppercase small mb-2">Multi-plataforma</p> <h3 class="mb-3">Seu app em todas as telas</h3> <p>Através de um único desenvolvimento nativo-compilado (Flutter/React Native), levamos seu app para Play Store (Android), App Store (iOS) e Web (PWA) sem custos adicionais exorbitantes.</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Saiba Mais</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
+                <div class="col-lg-6 text-center"> <img src="assets/images/placeholder-multiplataforma.jpg" class="img-fluid rounded" alt="..."> </div>
+                <div class="col-lg-6 order-lg-2"> <p class="text-primary text-uppercase small mb-2">Velocidade e Foco</p> <h3 class="mb-3">Entrega Ágil e Precisa</h3> <p>Seguimos o planejamento com precisão, garantindo que cada etapa seja concluída no prazo. Nossa abordagem eficiente e organizada assegura a entrega do seu projeto no tempo esperado e com a qualidade EVO.</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Como Funciona?</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
+                 <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-velocidade.jpg" class="img-fluid rounded" alt="..."> </div>
+                 <div class="col-lg-6"> <p class="text-primary text-uppercase small mb-2">Transparência Total</p> <h3 class="mb-3">Acompanhamento Real-Time</h3> <p>Atualizamos o progresso diariamente em ferramentas visuais (como Trello/Jira). Você acompanha cada etapa do desenvolvimento em tempo real, garantindo total transparência e controle sobre o seu projeto.</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Ver Ferramentas</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
+                 <div class="col-lg-6 text-center"> <img src="assets/images/placeholder-produtividade.jpg" class="img-fluid rounded" alt="..."> </div>
+                 <div class="col-lg-6 order-lg-2"> <p class="text-primary text-uppercase small mb-2">Metodologia Híbrida</p> <h3 class="mb-3">Flexibilidade Estratégica</h3> <p>Combinamos flexibilidade ágil com controle e planejamento estratégico. Adaptamos o desenvolvimento às suas necessidades sem comprometer prazos ou qualidade, garantindo um processo eficiente sem engessar o projeto.</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Nossa Metodologia</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
+                  <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-flexibilidade.jpg" class="img-fluid rounded" alt="..."> </div>
+            </div>
+        </div>
    </section>
 
     <section id="projetos" class="py-5 bg-light-gray">
@@ -354,12 +283,8 @@
             <h2 class="text-center mb-3">Projetos que <span class="text-primary">Transformam</span></h2>
             <p class="text-center col-md-8 mx-auto mb-5">Com +15 anos de experiência e +1000 projetos entregues, temos a expertise para transformar sua visão em realidade digital. Colaboramos com diversos setores, sempre focados em inovação e resultados.</p>
             <div class="grid-imagens mt-4">
-                <img src="assets/images/28a59a38.jpg" class="img-fluid" alt="Exemplo de projeto de app 1 - Interface principal">
-                <img src="assets/images/c4870cdb.jpg" class="img-fluid" alt="Exemplo de projeto de app 2 - Tela de perfil">
-                <img src="assets/images/2a53a8ce.jpg" class="img-fluid" alt="Exemplo de projeto de app 3 - Funcionalidade de mapa">
-                <img src="assets/images/4cd98fcc.jpg" class="img-fluid" alt="Exemplo de projeto de app 4 - Gráficos e dados">
-                <img src="assets/images/09732275.jpg" class="img-fluid" alt="Exemplo de projeto de app 5 - Tela de login">
-                <img src="assets/images/947705e0.jpg" class="img-fluid" alt="Exemplo de projeto de app 6 - Detalhes do produto">
+                <img src="assets/images/28a59a38.jpg" class="img-fluid" alt="..."> <img src="assets/images/c4870cdb.jpg" class="img-fluid" alt="..."> <img src="assets/images/2a53a8ce.jpg" class="img-fluid" alt="...">
+                <img src="assets/images/4cd98fcc.jpg" class="img-fluid" alt="..."> <img src="assets/images/09732275.jpg" class="img-fluid" alt="..."> <img src="assets/images/947705e0.jpg" class="img-fluid" alt="...">
             </div>
         </div>
    </section>
@@ -369,17 +294,8 @@
              <p class="text-primary text-uppercase small mb-2 text-center">Qualidade Comprovada</p>
              <h2 class="text-center mb-5">O que Nossos <span class="text-primary">Clientes</span> Dizem</h2>
              <div class="row align-items-center mt-5 gy-4">
-                 <div class="col-lg-6">
-                     <h3 class="mb-3">Otimização e Performance de Ponta</h3>
-                     <p>Nossos aplicativos atingem pontuações de otimização de destaque nas lojas (Play Store, App Store). Isso é resultado da combinação de performance técnica, design funcional e experiência do usuário cuidadosamente planejada.</p>
-                      <div class="d-flex gap-2 flex-wrap">
-                         <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20como%20a%20EVO%20garante%20a%20performance%20dos%20apps%3F" target="_blank" rel="noopener noreferrer" role="button">Detalhes Técnicos</a>
-                         <a href="#orcamento" class="btn btn-primary" role="button">Ver Planos</a>
-                     </div>
-                 </div>
-                 <div class="col-lg-6 text-center">
-                     <img src="assets/images/image01.jpg" class="img-fluid rounded" alt="Gráfico mostrando alta pontuação de qualidade e otimização dos apps EVO nas lojas">
-                 </div>
+                 <div class="col-lg-6"> <h3 class="mb-3">Otimização e Performance de Ponta</h3> <p>Nossos aplicativos atingem pontuações de otimização de destaque nas lojas (Play Store, App Store). Isso é resultado da combinação de performance técnica, design funcional e experiência do usuário cuidadosamente planejada.</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Detalhes Técnicos</a> <a href="#orcamento" class="btn btn-primary">Ver Planos</a> </div> </div>
+                 <div class="col-lg-6 text-center"> <img src="assets/images/image01.jpg" class="img-fluid rounded" alt="..."> </div>
              </div>
         </div>
    </section>
@@ -397,23 +313,24 @@
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100"> <div class="card-body d-flex flex-column"> <i class="material-icons">settings</i> <h3 class="card-title">Projeto Sob Medida</h3> <p class="card-text">Planejamos e desenvolvemos seu app do zero com escopo, prazo e investimento definidos juntos. Clareza total do início ao fim.</p> <h4 class="mt-auto">Sob Consulta</h4> <a class="btn btn-primary mt-3" href="..." target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a> </div> </div> </div>
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100"> <div class="card-body d-flex flex-column"> <i class="material-icons">verified_user</i> <h3 class="card-title">Suporte & Manutenção</h3> <p class="card-text">Garanta a estabilidade, segurança e atualização contínua do seu app. Nosso time cuida da saúde técnica por uma taxa mensal fixa.</p> <h4 class="mt-auto">Plano Mensal</h4> <a class="btn btn-primary mt-3" href="..." target="_blank" rel="noopener noreferrer">Manter meu App Seguro</a> </div> </div> </div>
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100"> <div class="card-body d-flex flex-column"> <i class="material-icons">schedule</i> <h3 class="card-title">Flexibilidade Total</h3> <p class="card-text">Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria ou para complementar sua equipe.</p> <h4 class="mt-auto">Por Hora</h4> <a class="btn btn-primary mt-3" href="..." target="_blank" rel="noopener noreferrer">Contratar Horas</a> </div> </div> </div>
-            </div> <div class="mt-5 text-center p-4 bg-white rounded col-lg-8 mx-auto"> <h4 class="mb-3">Precisa de algo diferente?</h4>
+            </div> <div class="mt-5 text-center p-4 bg-white rounded col-lg-8 mx-auto">
+                <h4 class="mb-3">Precisa de algo diferente?</h4>
                 <p>Descreva brevemente seu projeto ou dúvida abaixo:</p>
                 <textarea id="whatsapp-sugestao-input" class="form-control mb-3" placeholder="Ex: Preciso de um app de marketplace para moda sustentável..." rows="4"></textarea>
                 <div class="mb-3">
                     <p class="small mb-2">Ou selecione um tipo de projeto:</p>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Marketplace</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Rede Social</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Delivery</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Serviços (Uber)</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Ferramenta Interna</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Jogo Casual</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Educacional</button>
-                    <button type="button" class="btn btn-outline-secondary btn-sm m-1">Streaming</button>
+                    <button type="button" class="btn-suggestion">Marketplace</button>
+                    <button type="button" class="btn-suggestion">Rede Social</button>
+                    <button type="button" class="btn-suggestion">Delivery</button>
+                    <button type="button" class="btn-suggestion">Serviços (Uber)</button>
+                    <button type="button" class="btn-suggestion">Ferramenta Interna</button>
+                    <button type="button" class="btn-suggestion">Jogo Casual</button>
+                    <button type="button" class="btn-suggestion">Educacional</button>
+                    <button type="button" class="btn-suggestion">Streaming</button>
                 </div>
                 <button id="send-whatsapp-btn" class="btn btn-primary btn-lg mt-3">Enviar para Whatsapp</button>
              </div>
-        </div>
+             </div>
    </section>
 
     <section class="final-image-container py-5 bg-white" style="min-height: auto;">
@@ -430,30 +347,16 @@
   <footer class="py-4 py-md-5">
     <div class="container footer-content">
        <div class="row gy-4">
-           <div class="col-lg-4 col-md-6 footer-logo mb-3 mb-md-0 text-center text-md-start">
-                <a href="#"><img src="assets/images/evologo.jpg" alt="Logotipo EVO Cloud Apps - Rodapé" /></a>
-                <p class="mt-2 small" style="color: #e0e0e0;">Transformando ideias em realidade digital.</p>
-           </div>
-            <div class="col-lg-2 col-md-6 footer-links">
-                <h5>Navegação</h5>
-                <ul> <li><a href="#sobre">Sobre Nós</a></li> <li><a href="#valores-diferenciais">Diferenciais</a></li> <li><a href="#projetos">Portfólio</a></li> <li><a href="#orcamento">Orçamento</a></li> </ul>
-           </div>
-            <div class="col-lg-3 col-md-6 footer-links">
-                <h5>Serviços</h5>
-                 <ul> <li>Desenvolvimento MVP</li> <li>Apps Nativos (iOS/Android)</li> <li>Progressive Web Apps (PWA)</li> <li>Consultoria Técnica</li> </ul>
-            </div>
-             <div class="col-lg-3 col-md-6 footer-links">
-                <h5>Contato</h5>
-                 <ul> <li><a href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20pelo%20site." target="_blank" rel="noopener noreferrer">WhatsApp</a></li> <li><a href="mailto:contato@evosoftwares.com">contato@evosoftwares.com</a></li> <li><a href="https://www.instagram.com/evo.programadoresdeapps" target="_blank" rel="noopener noreferrer">Instagram</a></li> <li>São Paulo, SP - Brasil</li> </ul>
-            </div>
+           <div class="col-lg-4 col-md-6 footer-logo mb-3 mb-md-0 text-center text-md-start"> <a href="#"><img src="assets/images/evologo.jpg" alt="Logotipo EVO Cloud Apps - Rodapé" /></a> <p class="mt-2 small" style="color: #e0e0e0;">Transformando ideias em realidade digital.</p> </div>
+           <div class="col-lg-2 col-md-6 footer-links"> <h5>Navegação</h5> <ul> <li><a href="#sobre">Sobre Nós</a></li> <li><a href="#valores-diferenciais">Diferenciais</a></li> <li><a href="#projetos">Portfólio</a></li> <li><a href="#orcamento">Orçamento</a></li> </ul> </div>
+           <div class="col-lg-3 col-md-6 footer-links"> <h5>Serviços</h5> <ul> <li>Desenvolvimento MVP</li> <li>Apps Nativos (iOS/Android)</li> <li>Progressive Web Apps (PWA)</li> <li>Consultoria Técnica</li> </ul> </div>
+           <div class="col-lg-3 col-md-6 footer-links"> <h5>Contato</h5> <ul> <li><a href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20pelo%20site." target="_blank" rel="noopener noreferrer">WhatsApp</a></li> <li><a href="mailto:contato@evosoftwares.com">contato@evosoftwares.com</a></li> <li><a href="https://www.instagram.com/evo.programadoresdeapps" target="_blank" rel="noopener noreferrer">Instagram</a></li> <li>São Paulo, SP - Brasil</li> </ul> </div>
        </div>
        <div class="row"> <div class="col-12 text-center copyright"> © <span id="current-year"></span> EVO CLOUD APPS LTDA. Todos os direitos reservados. </div> </div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
   <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
-
   </body>
 </html>
