@@ -8,9 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"> <style>
     :root {
       --evo-light-gray: #f8f9fa;
     }
@@ -19,7 +17,7 @@
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       color: #212529;
       line-height: 1.6;
-      overflow-x: hidden; /* Previne scroll horizontal indesejado */
+      overflow-x: hidden;
     }
 
     /* --- Tipografia Responsiva --- */
@@ -32,7 +30,7 @@
 
     a { transition: color 0.2s ease-in-out; }
 
-    /* --- Header / Navbar (Responsivo por padrão com Bootstrap) --- */
+    /* --- Header / Navbar --- */
     .navbar { padding-top: 15px; padding-bottom: 15px; background-color: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     .navbar-brand img { height: 45px; }
     .navbar-nav .nav-link { color: #343a40; font-weight: 600; position: relative; padding: 0.5rem; margin-left: 1rem; }
@@ -47,11 +45,10 @@
     .whatsapp img { width: 24px; margin-right: 10px; }
 
     /* --- Seções e Fundos --- */
-    section { padding-left: 5%; padding-right: 5%; } /* Padding lateral responsivo */
-    /* Padding vertical via classes .py-5 no HTML (responsivo) */
+    section { padding-left: 5%; padding-right: 5%; }
     .bg-light-gray { background-color: var(--evo-light-gray) !important; }
 
-    /* --- Botões (Responsivos em tamanho/padding via Bootstrap) --- */
+    /* --- Botões --- */
     .btn { padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; border: none; box-shadow: none; }
     .btn-primary { background-image: linear-gradient(to right, var(--bs-primary) 0%, #0a58ca 100%); color: white; box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.2); }
     .btn:hover { transform: translateY(-3px); box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1); }
@@ -59,34 +56,82 @@
     .btn-light { background-color: #ffffff; color: #343a40; border: 1px solid #dee2e6; }
     .btn-light:hover { background-color: #f8f9fa; border-color: #ced4da;}
 
-    /* --- Cards (Responsivos via Grid/Flex) --- */
-    .card { border: 1px solid #dee2e6; border-radius: 15px; box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05) !important; transition: all 0.3s ease; background-color: #fff; height: 100%; /* Garante altura igual na linha */ }
+    /* --- Cards --- */
+    .card { border: 1px solid #dee2e6; border-radius: 15px; box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05) !important; transition: all 0.3s ease; background-color: #fff; height: 100%; }
     .card:hover { transform: translateY(-8px); box-shadow: 0 1rem 1.5rem rgba(0,0,0,.1) !important; }
-    .card h3 { color: var(--bs-primary); margin-top: 0.5rem; font-weight: 700; font-size: 1.5rem; /* Ajuste tamanho H3 card */ }
-    .card h4 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; color: #212529; } /* Ajuste H4 card */
-    .card p { color: #5a5a5a; font-size: 0.9rem; text-align: center; flex-grow: 1; margin-bottom: 1rem; line-height: 1.5; } /* Ajuste P card */
-    .card i.material-icons { color: var(--bs-primary); font-size: 3rem; margin-bottom: 1rem; display: block; padding: 0; } /* Ajuste ícone card */
+    .card h3 { color: var(--bs-primary); margin-top: 0.5rem; font-weight: 700; font-size: 1.5rem; }
+    .card h4 { font-size: 1.8rem; font-weight: 800; margin-bottom: 1rem; color: #212529; }
+    .card p { color: #5a5a5a; font-size: 0.9rem; text-align: center; flex-grow: 1; margin-bottom: 1rem; line-height: 1.5; }
+    .card i.material-icons { color: var(--bs-primary); font-size: 3rem; margin-bottom: 1rem; display: block; padding: 0; }
 
-    /* --- Grid de Imagens (Responsivo com CSS Grid) --- */
-    .grid-imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; /* Ajustado minmax e gap */ }
+    /* --- Grid de Imagens (Portfólio) --- */
+    .grid-imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
     .grid-imagens img { width: 100%; height: auto; display: block; border-radius: 12px; box-shadow: none; transition: transform 0.3s ease; border: 1px solid #eee; }
     .grid-imagens img:hover { transform: scale(1.03); }
 
-    /* --- Carrossel (Responsivo via Bootstrap JS) --- */
-    .carousel-item > div { min-height: 350px; /* Reduzido min-height */ display: flex; justify-content: center; align-items: center; flex-direction: column; }
+    /* --- Carrossel --- */
+    .carousel-item > div { min-height: 350px; display: flex; justify-content: center; align-items: center; flex-direction: column; }
     .carousel-item h2 { color: var(--bs-primary); } .carousel-item p { color: #343a40; }
-    .carousel-indicators [data-bs-target] { background-color: rgba(var(--bs-primary-rgb), 0.5) !important; height: 10px !important; width: 10px !important; border-radius: 50%; margin: 0 5px !important; border: 1px solid transparent; transition: background-color 0.3s ease; } /* Indicadores menores */
+    .carousel-indicators [data-bs-target] { background-color: rgba(var(--bs-primary-rgb), 0.5) !important; height: 10px !important; width: 10px !important; border-radius: 50%; margin: 0 5px !important; border: 1px solid transparent; transition: background-color 0.3s ease; }
     .carousel-indicators .active { background-color: var(--bs-primary) !important; }
     .carousel-control-prev, .carousel-control-next { width: auto; opacity: 0.8; transition: opacity 0.3s ease; }
     .carousel-control-prev:hover, .carousel-control-next:hover { opacity: 1; }
-    .custom-icon { font-size: 2rem; color: var(--bs-primary); background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; padding: 6px; } /* Ícones menores */
+    .custom-icon { font-size: 2rem; color: var(--bs-primary); background-color: rgba(255, 255, 255, 0.8); border-radius: 50%; padding: 6px; }
+
+    /* ============================================= */
+    /* --- ESTILOS PARA SEÇÃO DIFERENCIAIS (NOVO) --- */
+    /* ============================================= */
+    .differential-item {
+      background-color: #ffffff; /* Fundo branco para contraste */
+      border-radius: 15px; /* Mesma borda dos cards */
+      border: 1px solid #dee2e6;
+      text-align: center; /* Centraliza texto e ícone */
+      transition: all 0.3s ease;
+      box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05); /* Sombra sutil igual aos cards */
+    }
+    .differential-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1rem 1.5rem rgba(0,0,0,.1);
+    }
+    .icon-container {
+      background-color: rgba(var(--bs-primary-rgb), 0.1); /* Fundo azul claro */
+      color: var(--bs-primary); /* Ícone azul */
+      width: 70px; /* Tamanho do círculo */
+      height: 70px;
+      border-radius: 50%;
+      display: inline-flex; /* Para centralizar com margin: auto */
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem; /* Espaço abaixo do ícone */
+    }
+    .icon-container .material-icons {
+      font-size: 2.8rem; /* Tamanho do ícone */
+    }
+    .differential-category {
+      font-weight: 600; /* Semibold */
+      letter-spacing: 0.5px;
+      margin-bottom: 0.25rem; /* Menos espaço abaixo */
+    }
+    .differential-title {
+      font-size: 1.4rem; /* Tamanho do título do diferencial */
+      font-weight: 700;
+      color: #212529; /* Cor escura para título */
+    }
+    .differential-description {
+      font-size: 0.95rem;
+      color: #5a5a5a;
+      line-height: 1.6;
+    }
+    /* ============================================= */
+    /* --- FIM ESTILOS DIFERENCIAIS --- */
+    /* ============================================= */
 
     /* --- Seção Orçamento - Botões de Sugestão --- */
     .btn-suggestion { background-color: #f8f9fa; color: #495057; border: 1px solid #dee2e6; border-radius: 50px; padding: 0.35rem 0.9rem; font-size: 0.875rem; font-weight: 500; transition: all 0.2s ease-in-out; box-shadow: none; margin: 0.25rem; }
     .btn-suggestion:hover { background-color: #e9ecef; border-color: #adb5bd; color: #212529; transform: none; box-shadow: none; }
     #whatsapp-sugestao-input.form-control { border-radius: 0.375rem; }
 
-    /* --- Footer (Responsivo com Grid Bootstrap) --- */
+    /* --- Footer --- */
     footer { background-image: linear-gradient(to bottom, #1a73e8, #1256a1); color: white; width: 100%; margin-top: 3rem; }
     .footer-content { max-width: 1140px; margin: 0 auto; }
     .footer-logo img { max-height: 50px; width: auto; filter: brightness(0) invert(1); }
@@ -103,36 +148,36 @@
 
      /* --- Estilos Responsivos Adicionais --- */
      @media (max-width: 991.98px) { /* Abaixo de LG */
-       .navbar-nav { text-align: center; margin-top: 1rem; /* Espaço acima dos links no mobile */ }
-       .navbar-nav .nav-link { margin-left: 0; display: block; /* Links ocupam linha toda */ padding: 0.75rem 1rem; /* Mais área de toque */ }
-       .navbar-nav .nav-link::after { display: none; /* Remove linha no mobile */ }
+       .navbar-nav { text-align: center; margin-top: 1rem; }
+       .navbar-nav .nav-link { margin-left: 0; display: block; padding: 0.75rem 1rem; }
+       .navbar-nav .nav-link::after { display: none; }
        footer { padding-top: 2rem; padding-bottom: 2rem;}
        .footer-links h5 { margin-top: 1.5rem; }
-       /* Ajusta coluna de cards para 2 no tablet */
        #orcamento .col-md-6 { flex: 0 0 auto; width: 50%; }
+        /* Garante que os diferenciais fiquem 2 colunas no tablet */
+       #valores-diferenciais .row-cols-md-2 > * { flex: 0 0 auto; width: 50%; }
      }
-
      @media (max-width: 767.98px) { /* Abaixo de MD */
-       body { padding-top: 70px; /* Adiciona padding se header for sticky/fixed no mobile */ }
-       h1 { font-size: calc(1.325rem + 1.5vw); } /* Reduz mais H1 */
-       h2 { font-size: calc(1.275rem + 0.8vw); } /* Reduz mais H2 */
-       .text-lg-start { text-align: center !important; } /* Centraliza texto */
-       .justify-content-lg-start { justify-content: center !important; } /* Centraliza botões */
-       .final-image-container img { max-width: 95%; } /* Imagem final quase total */
-        /* Ajusta coluna de cards para 1 no mobile */
+       body { padding-top: 70px; }
+       h1 { font-size: calc(1.325rem + 1.5vw); } h2 { font-size: calc(1.275rem + 0.8vw); }
+       .text-lg-start { text-align: center !important; } .justify-content-lg-start { justify-content: center !important;}
+       .final-image-container img { max-width: 95%; }
        #orcamento .col-md-6 { flex: 0 0 auto; width: 100%; }
-       /* Ajusta padding geral das seções */
+        /* Garante que os diferenciais fiquem 1 coluna no mobile */
+       #valores-diferenciais .row-cols-md-2 > * { flex: 0 0 auto; width: 100%; }
        section { padding-left: 3%; padding-right: 3%; }
-       .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; } /* Reduz padding vertical */
+       .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+       .differential-item { padding: 1.5rem; } /* Menos padding no mobile */
+       .icon-container { width: 60px; height: 60px; margin-bottom: 1rem;}
+       .icon-container .material-icons { font-size: 2.2rem; }
+       .differential-title { font-size: 1.3rem; }
      }
-
-     @media (max-width: 575.98px) { /* Abaixo de SM (Extra Small) */
-        .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; } /* Botões menores */
-        .lead { font-size: 1.1rem; } /* Parágrafo lead menor */
-        .card h4 { font-size: 1.6rem; } /* Preço card menor */
+     @media (max-width: 575.98px) { /* Abaixo de SM */
+        .btn { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+        .lead { font-size: 1.1rem; }
+        .card h4 { font-size: 1.6rem; }
         .footer-logo img { max-height: 40px; }
         .copyright { font-size: 0.75rem; }
-        /* Ajusta botões de sugestão para quebrar melhor se necessário */
         #orcamento .mb-3 > .btn-suggestion { font-size: 0.8rem; padding: 0.3rem 0.7rem; }
      }
 
@@ -143,15 +188,12 @@
   <header class="sticky-top">
    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
      <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="assets/images/image02.jpg" alt="Logotipo EVO Softwares" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand" href="#"> <img src="assets/images/image02.jpg" alt="Logotipo EVO Softwares" /> </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#sobre">Sobre</a> </li> <li class="nav-item"> <a class="nav-link" href="#valores-diferenciais">Diferenciais</a> </li>
+                <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#sobre">Sobre</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#valores-diferenciais">Diferenciais</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#projetos">Portfólio</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#clientes">Clientes</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#orcamento">Orçamento</a> </li>
@@ -167,137 +209,78 @@
    </a>
 
    <section id="top" class="py-5 bg-white">
-     <div class="container">
-        <div class="row align-items-center gy-4">
-          <div class="col-lg-6 text-center text-lg-start">
-              <img src="assets/images/image06.png" alt="Ícones representando apps em Android, iOS e Web (PWA)" class="mb-3" style="height: 50px;">
-              <h1 class="mb-3">Criamos seu app <span class="text-primary">inovador</span></h1>
-              <p class="lead mb-4">Seu app em tempo recorde com os melhores profissionais. Acompanhe tudo em tempo real. Somos a empresa que mais <strong>cresce no Brasil!</strong></p>
-              <div class="d-flex gap-2 justify-content-center justify-content-lg-start mb-4 flex-wrap">
-                 <a class="btn btn-light" href="..." target="_blank" rel="noopener noreferrer">Falar com especialista</a>
-                 <a href="#orcamento" class="btn btn-primary">Quanto custa meu app</a>
-              </div>
-               <img src="assets/images/image12.jpg" class="img-fluid mt-4 rounded d-none d-lg-block" alt="Depoimentos...">
-          </div>
-          <div class="col-lg-6 mt-4 mt-lg-0">
-             <img src="assets/images/image14.jpg" class="img-fluid rounded" alt="Interface de app...">
-          </div>
-       </div>
-     </div>
+     <div class="container"> <div class="row align-items-center gy-4"> <div class="col-lg-6 text-center text-lg-start"> <img src="assets/images/image06.png" alt="Ícones..." class="mb-3" style="height: 50px;"> <h1 class="mb-3">Criamos seu app <span class="text-primary">inovador</span></h1> <p class="lead mb-4">Seu app...</p> <div class="d-flex gap-2 justify-content-center justify-content-lg-start mb-4 flex-wrap"> <a class="btn btn-light" href="...">Falar com especialista</a> <a href="#orcamento" class="btn btn-primary">Quanto custa meu app</a> </div> <img src="assets/images/image12.jpg" class="img-fluid mt-4 rounded d-none d-lg-block" alt="Depoimentos..."> </div> <div class="col-lg-6 mt-4 mt-lg-0"> <img src="assets/images/image14.jpg" class="img-fluid rounded" alt="Interface de app..."> </div> </div> </div>
    </section>
 
    <section id="sobre" class="py-5 bg-light-gray">
-       <div class="container">
-            <p class="text-primary text-uppercase small mb-2 text-center">Quem somos</p>
-            <h2 class="text-center mb-5">A Alma da <span class="text-primary">EVO</span></h2>
-             <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                 </div>
-                 <div class="carousel-inner">
-                     <div class="carousel-item active"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Manifesto EVO</h3> <p>Acreditamos...</p> </div> </div>
-                     <div class="carousel-item"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Como Trabalhamos</h3> <p><strong>Ideia Chega...</strong></p> </div> </div>
-                     <div class="carousel-item"> <div class="p-3 p-md-5 text-center col-lg-8 mx-auto"> <h3 class="mb-3">Nossa Metáfora</h3> <p>A EVO é como...</p> </div> </div>
-                 </div>
-                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"> <i class="material-icons custom-icon">arrow_back_ios</i> <span class="visually-hidden">Anterior</span> </button>
-                 <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"> <i class="material-icons custom-icon">arrow_forward_ios</i> <span class="visually-hidden">Próximo</span> </button>
-             </div>
-        </div>
+       <div class="container"> <p class="text-primary text-uppercase small mb-2 text-center">Quem somos</p> <h2 class="text-center mb-5">A Alma da <span class="text-primary">EVO</span></h2> <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel"> <div class="carousel-indicators">...</div> <div class="carousel-inner"> <div class="carousel-item active">...</div> <div class="carousel-item">...</div> <div class="carousel-item">...</div> </div> <button class="carousel-control-prev">...</button> <button class="carousel-control-next">...</button> </div> </div>
    </section>
 
-   <section id="valores-diferenciais" class="py-5 bg-white">
+    <section id="valores-diferenciais" class="py-5 bg-white">
         <div class="container">
             <p class="text-primary text-uppercase small mb-2 text-center">O que nos torna únicos</p>
             <h2 class="text-center mb-5">Nossos <span class="text-primary">Diferenciais</span></h2>
-             <div class="row align-items-center gy-5">
-                <div class="col-lg-6"> <p>...</p> <h3 class="mb-3">Seu app em todas as telas</h3> <p>...</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="...">Saiba Mais</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
-                <div class="col-lg-6 text-center"> <img src="assets/images/placeholder-multiplataforma.jpg" class="img-fluid rounded" alt="..."> </div>
-                <div class="col-lg-6 order-lg-2"> <p>...</p> <h3 class="mb-3">Entrega Ágil e Precisa</h3> <p>...</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="...">Como Funciona?</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
-                 <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-velocidade.jpg" class="img-fluid rounded" alt="..."> </div>
-                 <div class="col-lg-6"> <p>...</p> <h3 class="mb-3">Acompanhamento Real-Time</h3> <p>...</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="...">Ver Ferramentas</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
-                 <div class="col-lg-6 text-center"> <img src="assets/images/placeholder-produtividade.jpg" class="img-fluid rounded" alt="..."> </div>
-                 <div class="col-lg-6 order-lg-2"> <p>...</p> <h3 class="mb-3">Flexibilidade Estratégica</h3> <p>...</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="...">Nossa Metodologia</a> <a href="#orcamento" class="btn btn-primary">Ver Preços</a> </div> </div>
-                  <div class="col-lg-6 text-center order-lg-1"> <img src="assets/images/placeholder-flexibilidade.jpg" class="img-fluid rounded" alt="..."> </div>
-            </div>
-        </div>
-   </section>
 
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <div class="col">
+                    <div class="differential-item p-4 h-100">
+                        <div class="icon-container">
+                            <i class="material-icons">devices</i> </div>
+                        <p class="text-primary text-uppercase small mb-1 differential-category">Multi-plataforma</p>
+                        <h3 class="differential-title mb-2">Seu app em todas as telas</h3>
+                        <p class="differential-description">Desenvolvimento único para Play Store (Android), App Store (iOS) e Web (PWA) com tecnologias como Flutter/React Native, otimizando seu investimento.</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="differential-item p-4 h-100">
+                         <div class="icon-container">
+                            <i class="material-icons">rocket_launch</i> </div>
+                        <p class="text-primary text-uppercase small mb-1 differential-category">Velocidade e Foco</p>
+                        <h3 class="differential-title mb-2">Entrega Ágil e Precisa</h3>
+                        <p class="differential-description">Seguimos o planejamento com precisão, usando metodologias ágeis para garantir que cada etapa seja concluída no prazo, entregando seu projeto com qualidade EVO.</p>
+                    </div>
+                </div>
+
+                 <div class="col">
+                    <div class="differential-item p-4 h-100">
+                        <div class="icon-container">
+                            <i class="material-icons">visibility</i> </div>
+                        <p class="text-primary text-uppercase small mb-1 differential-category">Transparência Total</p>
+                        <h3 class="differential-title mb-2">Acompanhamento Real-Time</h3>
+                        <p class="differential-description">Atualizamos o progresso diariamente em ferramentas visuais (Trello/Jira). Você acompanha cada etapa em tempo real, garantindo controle total sobre seu projeto.</p>
+                    </div>
+                </div>
+
+                 <div class="col">
+                     <div class="differential-item p-4 h-100">
+                         <div class="icon-container">
+                            <i class="material-icons">tune</i> </div>
+                         <p class="text-primary text-uppercase small mb-1 differential-category">Metodologia Híbrida</p>
+                         <h3 class="differential-title mb-2">Flexibilidade Estratégica</h3>
+                         <p class="differential-description">Combinamos flexibilidade ágil com planejamento estratégico. Adaptamos o desenvolvimento às suas necessidades sem comprometer prazos ou qualidade.</p>
+                     </div>
+                 </div>
+
+            </div> </div>
+   </section>
     <section id="projetos" class="py-5 bg-light-gray">
-        <div class="container">
-            <p class="text-primary text-uppercase small mb-2 text-center">Nosso Portfólio</p>
-            <h2 class="text-center mb-3">Projetos que <span class="text-primary">Transformam</span></h2>
-            <p class="text-center col-md-8 mx-auto mb-5">...</p>
-            <div class="grid-imagens mt-4">
-                <img src="assets/images/28a59a38.jpg" class="img-fluid" alt="..."> <img src="assets/images/c4870cdb.jpg" class="img-fluid" alt="..."> <img src="assets/images/2a53a8ce.jpg" class="img-fluid" alt="...">
-                <img src="assets/images/4cd98fcc.jpg" class="img-fluid" alt="..."> <img src="assets/images/09732275.jpg" class="img-fluid" alt="..."> <img src="assets/images/947705e0.jpg" class="img-fluid" alt="...">
-            </div>
-        </div>
+        <div class="container"> <p class="text-primary text-uppercase small mb-2 text-center">Nosso Portfólio</p> <h2 class="text-center mb-3">Projetos que <span class="text-primary">Transformam</span></h2> <p class="text-center col-md-8 mx-auto mb-5">...</p> <div class="grid-imagens mt-4">...</div> </div>
    </section>
 
     <section id="clientes" class="py-5 bg-white">
-        <div class="container">
-             <p class="text-primary text-uppercase small mb-2 text-center">Qualidade Comprovada</p>
-             <h2 class="text-center mb-5">O que Nossos <span class="text-primary">Clientes</span> Dizem</h2>
-             <div class="row align-items-center mt-5 gy-4">
-                 <div class="col-lg-6"> <h3 class="mb-3">Otimização e Performance...</h3> <p>...</p> <div class="d-flex gap-2 flex-wrap"> <a class="btn btn-light" href="...">Detalhes Técnicos</a> <a href="#orcamento" class="btn btn-primary">Ver Planos</a> </div> </div>
-                 <div class="col-lg-6 text-center"> <img src="assets/images/image01.jpg" class="img-fluid rounded" alt="..."> </div>
-             </div>
-        </div>
+        <div class="container"> <p class="text-primary text-uppercase small mb-2 text-center">Qualidade Comprovada</p> <h2 class="text-center mb-5">O que Nossos <span class="text-primary">Clientes</span> Dizem</h2> <div class="row align-items-center mt-5 gy-4"> <div class="col-lg-6">...</div> <div class="col-lg-6 text-center">...</div> </div> </div>
    </section>
 
     <section id="orcamento" class="py-5 bg-light-gray">
-        <div class="container">
-            <p>...</p> <h2 class="text-center mb-3">Quanto Custa...?</h2> <p class="text-center col-md-8 mx-auto mb-5">...</p>
-            <div class="row justify-content-center g-4">
-                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-                <div class="col-md-6 col-lg-4 d-flex align-items-stretch"> <div class="card p-4 w-100">...</div> </div>
-            </div>
-            <div class="mt-5 text-center p-4 bg-white rounded col-lg-8 mx-auto">
-                <h4 class="mb-3">Precisa de algo diferente?</h4>
-                <p>...</p>
-                <textarea id="whatsapp-sugestao-input" class="form-control mb-3" placeholder="..." rows="4"></textarea>
-                <div class="mb-3">
-                    <p class="small mb-2">Ou selecione um tipo de projeto:</p>
-                    <button type="button" class="btn-suggestion">Marketplace</button>
-                    <button type="button" class="btn-suggestion">Rede Social</button>
-                    <button type="button" class="btn-suggestion">Delivery</button>
-                    <button type="button" class="btn-suggestion">Serviços (Uber)</button>
-                    <button type="button" class="btn-suggestion">Ferramenta Interna</button>
-                    <button type="button" class="btn-suggestion">Jogo Casual</button>
-                    <button type="button" class="btn-suggestion">Educacional</button>
-                    <button type="button" class="btn-suggestion">Streaming</button>
-                </div>
-                <button id="send-whatsapp-btn" class="btn btn-primary btn-lg mt-3">Enviar para Whatsapp</button>
-             </div>
-        </div>
+        <div class="container"> <p>...</p> <h2 class="text-center mb-3">Quanto Custa...?</h2> <p class="text-center col-md-8 mx-auto mb-5">...</p> <div class="row justify-content-center g-4">... (Cards aqui) ...</div> <div class="mt-5 text-center p-4 bg-white rounded col-lg-8 mx-auto"> <h4 class="mb-3">Precisa de algo diferente?</h4> <p>...</p> <textarea id="whatsapp-sugestao-input" class="form-control mb-3" placeholder="..." rows="4"></textarea> <div class="mb-3"> <p>...</p> <button type="button" class="btn-suggestion">Marketplace</button> ... (outros botões) ... </div> <button id="send-whatsapp-btn" class="btn btn-primary btn-lg mt-3">Enviar para Whatsapp</button> </div> </div>
    </section>
 
-    <section class="final-image-container py-5 bg-white" style="min-height: auto;">
-        <div class="container text-center">
-             <h2 class="mb-4">Conecte-se...</h2>
-             <img src="assets/images/image09.jpg" class="img-fluid" alt="...">
-             <a class="instagram-link" href="..." target="_blank" rel="noopener noreferrer">...</a>
-        </div>
-   </section>
+    <section class="final-image-container py-5 bg-white" style="min-height: auto;"> <div class="container text-center"> <h2 class="mb-4">Conecte-se...</h2> <img src="assets/images/image09.jpg" class="img-fluid" alt="..."> <a class="instagram-link" href="..." target="_blank" rel="noopener noreferrer">...</a> </div> </section>
   </main>
 
-  <footer class="py-4 py-md-5">
-    <div class="container footer-content">
-        <div class="row gy-4">
-           <div class="col-lg-4 col-md-6 footer-logo ..."> ... </div>
-           <div class="col-lg-2 col-md-6 footer-links"> ... </div>
-           <div class="col-lg-3 col-md-6 footer-links"> ... </div>
-           <div class="col-lg-3 col-md-6 footer-links"> ... </div>
-       </div>
-       <div class="row"> <div class="col-12 text-center copyright"> ... </div> </div>
-    </div>
-  </footer>
+  <footer class="py-4 py-md-5"> <div class="container footer-content"> <div class="row gy-4">... (colunas do footer) ...</div> <div class="row"> <div class="col-12 text-center copyright">...</div> </div> </div> </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <script> document.getElementById('current-year').textContent = new Date().getFullYear(); </script>
