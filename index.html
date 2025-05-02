@@ -196,21 +196,42 @@
     }
 
     footer {
-      width: 100%;
-      background-color: #1e73e8;
-      color: white;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      height: 80px;
-    }
-    footer img {
-      margin-bottom: 4px;
-    }
-    .footer-bottom {
-    }
+  background-color: #1e73e8;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-left img {
+  height: 40px;
+}
+
+.footer-left p {
+  font-size: 16px;
+}
+
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+copyright {
+  font-size: 12px;
+}
     
     .carousel-inner p{
       text-align: center;
@@ -544,9 +565,18 @@
   </main>
   
   <footer>
-      <img src="assets/images/evologo.jpg">
-    <div class="footer-bottom">
-      © EVO CLOUD APPS LTDA. Todos os direitos reservados.
+    <div class="footer-content">
+      <div class="footer-left">
+        <img src="assets/images/evologo.jpg" alt="Logo Evo" />
+        <p>Transformamos ideias em ativos digitais</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://wa.me/SEUNUMEROAQUI" target="_blank" class="whatsapp-button">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f4ac.svg" alt="WhatsApp" />
+          Fale Conosco
+        </a>
+        <p class="copyright">© EVO CLOUD APPS LTDA. Todos os direitos reservados.</p>
+      </div>
     </div>
   </footer>
 </body>
