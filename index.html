@@ -10,7 +10,743 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           SUMÁRIO / ORGANIZAÇÃO DO CSS
+           ==========================================================================
+            1. Variáveis Globais e Estilos :root
+            2. Estilos Base e Tipografia (body, h1-h6, p, a)
+            3. Estilos de Botões (Geral, Primário, Light, Sugestão)
+            4. Barra de Navegação (Navbar)
+            5. Cards (Geral e Específicos por Seção: Depoimentos, Orçamento)
+            6. Componentes Diversos (Carrossel, Grid de Imagens, Botão WhatsApp, etc.)
+            7. Estilos Específicos de Seção (Hero, Diferenciais, etc.)
+            8. Rodapé (Footer)
+            9. Considerações de Acessibilidade (Espaços Reservados / Lembretes)
+           10. Media Queries (Estilos Responsivos para Diferentes Telas)
+           ========================================================================== */
+
+
+        /* ============================
+           1. VARIÁVEIS GLOBAIS E ESTILOS :ROOT
+           ============================ */
+        :root {
+          /* Define variáveis CSS (Custom Properties) para cores e valores reutilizáveis */
+          --evo-light-gray: #f8f9fa; /* Cinza claro para fundos de seção */
+          --bs-primary: #0d6efd; /* Cor primária padrão do Bootstrap (Azul) - pode ser sobrescrita se necessário */
+          --bs-primary-rgb: 13, 110, 253; /* Versão RGB da cor primária para usar com `rgba()` */
+          --evo-text-color: #212529; /* Cor principal do texto (cinza escuro) */
+          --evo-secondary-text-color: #5a5a5a; /* Cor secundária do texto (cinza médio) */
+          --evo-link-hover-color: #0a58ca; /* Cor para links ao passar o mouse (azul mais escuro) */
+          --evo-gradient-start: var(--bs-primary); /* Início do gradiente para botões */
+          --evo-gradient-end: #0a58ca; /* Fim do gradiente para botões (azul mais escuro) */
+        }
+
+
+        /* ============================
+           2. ESTILOS BASE E TIPOGRAFIA
+           ============================ */
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* Define a pilha de fontes principal, com fallbacks */
+          color: var(--evo-text-color); /* Define a cor padrão do texto */
+          line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
+          overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
+          /* AJUSTE DE ALTURA: Padding para compensar header fixo. Ajuste este valor se mudar a altura do header */
+          padding-top: 55px; /* Exemplo: Reduzido para 55px. Teste o valor ideal! */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: 700; /* Define o peso da fonte para todos os cabeçalhos */
+        }
+
+        /* Tamanhos de Cabeçalho Responsivos usando `calc()` e `vw` (largura da viewport) */
+        h1 { font-size: calc(1.375rem + 1.8vw); } /* Tamanho base + fator responsivo */
+        h2 { font-size: calc(1.3rem + 0.9vw); }
+        h3 { font-size: calc(1.275rem + 0.3vw); }
+
+        /* Define tamanhos fixos para cabeçalhos em telas grandes (a partir de 1200px) */
+        @media (min-width: 1200px) {
+          h1 { font-size: 3.5rem; } /* 56px */
+          h2 { font-size: 2.5rem; } /* 40px */
+          h3 { font-size: 1.75rem; } /* 28px */
+        }
+
+        p {
+          margin-bottom: 1.25rem; /* Espaçamento padrão abaixo dos parágrafos */
+          color: var(--evo-secondary-text-color); /* Cor para parágrafos normais */
+        }
+
+        p.lead {
+          /* Estilo para parágrafos de destaque (introdução) */
+          font-size: 1.25rem; /* Tamanho maior */
+          font-weight: 400; /* Peso normal */
+        }
+
+        a {
+          /* Estilo base para links */
+          transition: color 0.2s ease-in-out; /* Transição suave da cor ao passar o mouse */
+          text-decoration: none; /* Remove o sublinhado padrão */
+          color: var(--bs-primary); /* Cor padrão do link (azul) */
+        }
+        a:hover {
+          /* Estilo do link ao passar o mouse */
+          color: var(--evo-link-hover-color); /* Muda para a cor de hover definida */
+          text-decoration: underline; /* Adiciona sublinhado no hover */
+        }
+
+
+        /* ============================
+           3. ESTILOS DE BOTÕES
+           ============================ */
+        .btn {
+          /* Estilo base para todos os botões */
+          padding: 0.75rem 1.5rem; /* Espaçamento interno */
+          border-radius: 50px; /* Bordas totalmente arredondadas (pílula) */
+          font-weight: 600; /* Peso da fonte */
+          transition: all 0.3s ease; /* Transição suave para todas as propriedades (hover) */
+          border: none; /* Remove borda padrão */
+          box-shadow: none; /* Remove sombra padrão */
+          text-decoration: none; /* Garante que links estilizados como botões não tenham sublinhado */
+          display: inline-flex; /* Permite alinhar ícones e texto dentro do botão */
+          align-items: center; /* Alinha verticalmente o conteúdo do botão (ícone e texto) */
+          justify-content: center; /* Centraliza horizontalmente o conteúdo do botão */
+          cursor: pointer; /* Garante o cursor de ponteiro */
+        }
+
+        .btn-primary {
+          /* Estilo para botões primários */
+          background-image: linear-gradient(to right, var(--evo-gradient-start) 0%, var(--evo-gradient-end) 100%); /* Fundo com gradiente */
+          color: white; /* Cor do texto */
+          box-shadow: 0 4px 15px rgba(var(--bs-primary-rgb), 0.2); /* Sombra sutil baseada na cor primária */
+        }
+
+        .btn:hover {
+          /* Efeito geral de hover para botões */
+          transform: translateY(-3px); /* Move o botão levemente para cima */
+          box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1); /* Aumenta a sombra */
+        }
+
+        .btn-primary:hover {
+          /* Efeito específico de hover para botões primários */
+          background-image: linear-gradient(to right, var(--evo-gradient-end) 0%, var(--evo-gradient-start) 100%); /* Inverte o gradiente */
+          box-shadow: 0 7px 20px rgba(var(--bs-primary-rgb), 0.3); /* Intensifica a sombra */
+          color: white; /* Mantém o texto branco */
+          text-decoration: none; /* Garante que não haja sublinhado */
+        }
+
+        .btn-light {
+          /* Estilo para botões claros (geralmente com fundo branco/cinza claro) */
+          background-color: #ffffff;
+          color: #343a40; /* Texto escuro */
+          border: 1px solid #dee2e6; /* Borda sutil */
+        }
+
+        .btn-light:hover {
+          background-color: #f8f9fa; /* Fundo levemente acinzentado no hover */
+          border-color: #ced4da; /* Borda levemente mais escura no hover */
+          color: #343a40; /* Mantém a cor do texto */
+          text-decoration: none;
+        }
+
+        /* Botões de Sugestão (Seção Orçamento) */
+        .btn-suggestion {
+          background-color: #f8f9fa;
+          color: #495057;
+          border: 1px solid #dee2e6;
+          border-radius: 50px;
+          padding: 0.35rem 0.9rem; /* Padding menor */
+          font-size: 0.875rem; /* Tamanho de fonte menor */
+          font-weight: 500; /* Peso médio */
+          transition: all 0.2s ease-in-out; /* Transição mais rápida */
+          box-shadow: none;
+          margin: 0.25rem; /* Pequeno espaçamento entre botões */
+        }
+
+        .btn-suggestion:hover {
+          background-color: #e9ecef;
+          border-color: #adb5bd;
+          color: #212529;
+          transform: none; /* Remove o efeito de levantar do hover padrão */
+          box-shadow: none; /* Garante que não haja sombra no hover */
+          text-decoration: none;
+        }
+
+
+        /* ============================
+           4. BARRA DE NAVEGAÇÃO (NAVBAR)
+           ============================ */
+        .navbar {
+          /* AJUSTE DE ALTURA: Padding vertical reduzido */
+          padding-top: 8px;
+          padding-bottom: 8px;
+          background-color: white;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave abaixo da navbar */
+        }
+
+        .navbar-brand img {
+          /* AJUSTE DE ALTURA: Altura do logo reduzida */
+          height: 38px;
+          width: auto; /* Largura automática para manter proporção */
+        }
+
+        .navbar-nav .nav-link {
+          color: #343a40; /* Cor padrão dos links da navbar */
+          font-weight: 600; /* Peso da fonte */
+          position: relative; /* Necessário para o posicionamento do pseudo-elemento ::after */
+          padding: 0.5rem; /* Padding interno dos links */
+          margin-left: 1rem; /* Espaçamento à esquerda entre os links (em telas maiores) */
+          text-decoration: none; /* Garante que não haja sublinhado */
+        }
+
+        .navbar-nav .nav-link::after {
+          /* Pseudo-elemento usado para criar o efeito de sublinhado animado */
+          content: ''; /* Necessário para que o pseudo-elemento seja exibido */
+          position: absolute; /* Posicionamento relativo ao .nav-link */
+          width: 0; /* Largura inicial zero (escondido) */
+          height: 2px; /* Altura do sublinhado */
+          bottom: 5px; /* Posição vertical (5px acima da base do link) */
+          left: 0.5rem; /* Posição inicial à esquerda (considerando o padding do link) */
+          right: 0.5rem; /* Posição final à direita (considerando o padding do link) */
+          background-color: var(--bs-primary); /* Cor do sublinhado */
+          transition: width 0.3s ease-in-out; /* Animação da largura ao mostrar/esconder */
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active { /* Estilo ao passar o mouse ou se o link estiver ativo */
+          color: var(--bs-primary); /* Muda a cor do texto para a cor primária */
+        }
+
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link.active::after { /* Efeito do sublinhado no hover/active */
+          width: calc(100% - 1rem); /* Expande a largura do sublinhado (100% menos o padding lateral total) */
+        }
+
+        .navbar-toggler {
+          border: none; /* Remove a borda padrão do botão toggler (hambúrguer) */
+        }
+        .navbar-toggler:focus {
+          box-shadow: none; /* Remove a sombra de foco padrão do Bootstrap */
+        }
+
+
+        /* ============================
+           5. CARDS (GERAL E ESPECÍFICOS)
+           ============================ */
+        .card {
+          /* Estilo base para todos os cards */
+          border: 1px solid #dee2e6; /* Borda sutil */
+          border-radius: 15px; /* Cantos arredondados */
+          box-shadow: 0 0.5rem 1rem rgba(0,0,0,.05) !important; /* Sombra padrão (usando !important com cuidado para sobrescrever Bootstrap se necessário) */
+          transition: all 0.3s ease; /* Transição suave para o efeito de hover */
+          background-color: #fff; /* Fundo branco */
+          height: 100%; /* Ocupa 100% da altura da coluna flex pai (se d-flex for usado) */
+          overflow: hidden; /* Evita que conteúdo interno (como sombras de botões) vaze */
+        }
+
+        .card:hover {
+          /* Efeito ao passar o mouse sobre o card */
+          transform: translateY(-8px); /* Move o card para cima */
+          box-shadow: 0 1rem 1.5rem rgba(0,0,0,.1) !important; /* Aumenta a sombra */
+        }
+
+        .card .card-body {
+          padding: 1.5rem; /* Padding padrão para o corpo do card */
+        }
+
+        .card h3.card-title {
+          /* Estilo para títulos H3 dentro de cards */
+          color: var(--bs-primary); /* Cor primária */
+          margin-top: 0.5rem; /* Espaço acima (após o ícone, se houver) */
+          margin-bottom: 1rem; /* Espaço abaixo */
+          font-weight: 700;
+          font-size: 1.5rem;
+        }
+
+        .card h4.pricing-value {
+          /* Estilo específico para o preço (H4) nos cards de orçamento */
+          font-size: 1.8rem;
+          font-weight: 800;
+          margin-bottom: 1rem;
+          color: var(--evo-text-color); /* Cor padrão do texto */
+        }
+
+        .card p.card-text {
+          /* Estilo para o texto principal dentro dos cards */
+          color: var(--evo-secondary-text-color); /* Cor secundária */
+          font-size: 0.9rem; /* Tamanho de fonte ligeiramente menor */
+          flex-grow: 1; /* Permite que o parágrafo ocupe o espaço vertical disponível no flex container (card-body) */
+          margin-bottom: 1.5rem; /* Garante espaço antes de elementos inferiores (preço, botão) */
+          line-height: 1.5;
+        }
+
+        .card i.material-icons {
+          /* Estilo geral para ícones Material Icons dentro de cards */
+          color: var(--bs-primary); /* Cor primária */
+          font-size: 3rem; /* Tamanho padrão do ícone */
+          display: block; /* Garante que o ícone ocupe sua própria linha */
+          padding: 0; /* Remove padding extra */
+          margin-bottom: 1rem; /* Espaçamento padrão abaixo do ícone */
+        }
+
+        /* --- Estilos Específicos para Cards de Depoimentos (#clientes) --- */
+        #clientes .testimonial-card {
+          text-align: center; /* Centraliza todo o conteúdo do card de depoimento */
+        }
+        #clientes .testimonial-icon {
+          font-size: 2.5rem; /* Ícone de aspas um pouco menor */
+          margin-left: auto; /* Centraliza o ícone horizontalmente */
+          margin-right: auto;
+        }
+        #clientes .testimonial-text {
+          flex-grow: 1; /* Ocupa espaço vertical */
+          margin-bottom: 1.5rem; /* Espaço antes do nome */
+          font-size: 0.95rem; /* Tamanho do texto do depoimento */
+        }
+        #clientes .testimonial-author {
+          margin-top: auto; /* Empurra o nome para a base do card no layout flex */
+          margin-bottom: 0;
+          color: var(--evo-text-color); /* Cor padrão para o nome */
+        }
+        #clientes .testimonial-title {
+          font-size: 0.85rem; /* Tamanho menor para o cargo/empresa */
+          display: block; /* Garante que o span ocupe uma linha */
+          color: var(--evo-secondary-text-color); /* Cor secundária */
+        }
+
+        /* --- Estilos Específicos para Cards de Orçamento (#orcamento) --- */
+        #orcamento .pricing-card .card-body {
+          text-align: center; /* Centraliza conteúdo dos cards de orçamento */
+        }
+        #orcamento .pricing-icon {
+           margin-left: auto; /* Centraliza o ícone horizontalmente */
+           margin-right: auto;
+           margin-bottom: 1rem; /* Espaçamento padrão abaixo */
+        }
+
+
+        /* ============================
+           6. COMPONENTES DIVERSOS
+           ============================ */
+
+        /* --- Botão Flutuante WhatsApp --- */
+        .whatsapp {
+          position: fixed; /* Posição fixa relativa à viewport */
+          bottom: 25px; /* Distância da base */
+          right: 25px; /* Distância da direita */
+          background-color: #25D366; /* Cor verde do WhatsApp */
+          color: white; /* Texto branco */
+          padding: 10px 18px; /* Espaçamento interno */
+          border-radius: 50px; /* Bordas arredondadas */
+          text-decoration: none; /* Remove sublinhado */
+          display: flex; /* Para alinhar ícone e texto */
+          align-items: center; /* Alinha verticalmente */
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra */
+          z-index: 1030; /* Garante que fique acima de outros elementos (Bootstrap modal z-index é ~1050) */
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animação no hover */
+        }
+        .whatsapp:hover {
+          transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+          box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* Aumenta a sombra */
+          color: white; /* Mantém a cor do texto */
+          text-decoration: none; /* Garante sem sublinhado */
+        }
+        /* Estilo para o ÍCONE Material Icons dentro do botão WhatsApp */
+        .whatsapp .whatsapp-icon {
+            font-size: 26px; /* Tamanho do ícone */
+            margin-right: 8px; /* Espaço à direita do ícone */
+            vertical-align: middle; /* Ajuda no alinhamento vertical */
+            /* A cor (branca) é herdada do elemento pai '.whatsapp' */
+        }
+        .whatsapp span {
+          /* Estilo para o texto dentro do botão WhatsApp */
+          font-weight: 600;
+        }
+
+        /* --- Grid de Imagens (Portfólio) --- */
+        .grid-imagens {
+          display: grid; /* Ativa o layout de grid CSS */
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cria colunas responsivas */
+          gap: 20px; /* Espaçamento entre os itens do grid */
+        }
+        .grid-imagens img {
+          width: 100%; /* Imagem ocupa toda a largura da célula do grid */
+          height: auto; /* Altura automática para manter proporção */
+          display: block; /* Evita espaços extras abaixo da imagem */
+          border-radius: 12px; /* Cantos arredondados */
+          box-shadow: none; /* Sem sombra por padrão */
+          transition: transform 0.3s ease; /* Animação suave no hover */
+          border: 1px solid #eee; /* Borda sutil */
+        }
+        .grid-imagens img:hover {
+          transform: scale(1.03); /* Aumenta ligeiramente a imagem no hover */
+        }
+
+        /* --- Carrossel (Seção Sobre) --- */
+        .carousel-item > div {
+          /* Estilo para o container DENTRO de cada slide */
+          min-height: 300px; /* Altura mínima para garantir espaço vertical */
+          display: flex;
+          justify-content: center; /* Centraliza horizontalmente */
+          align-items: center; /* Centraliza verticalmente */
+          flex-direction: column; /* Empilha os elementos verticalmente */
+          padding: 1rem; /* Padding interno */
+        }
+        .carousel-item p {
+          color: var(--evo-secondary-text-color); /* Use secondary text color */
+          font-size: 1rem;
+          line-height: 1.7;
+          text-align: center; /* Ensure text is centered */
+        }
+        .carousel-indicators [data-bs-target] {
+          /* Estilo para os indicadores (bolinhas) */
+          background-color: rgba(var(--bs-primary-rgb), 0.5) !important; /* Cor com transparência */
+          height: 10px !important;
+          width: 10px !important;
+          border-radius: 50%; /* Círculo perfeito */
+          margin: 0 5px !important; /* Espaçamento horizontal */
+          border: 1px solid transparent;
+          transition: background-color 0.3s ease;
+        }
+        .carousel-indicators .active {
+          /* Estilo do indicador ativo */
+          background-color: var(--bs-primary) !important; /* Cor primária sólida */
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+          /* Estilo para as setas de controle */
+          width: auto; /* Largura automática baseada no conteúdo (ícone) */
+          opacity: 0.8; /* Leve transparência */
+          transition: opacity 0.3s ease;
+        }
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+          opacity: 1; /* Opacidade total no hover */
+        }
+        .custom-icon {
+          /* Estilo para o ícone DENTRO das setas de controle */
+          font-size: 2rem; /* Tamanho do ícone */
+          color: var(--bs-primary); /* Cor primária */
+          background-color: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+          border-radius: 50%; /* Fundo circular */
+          padding: 6px; /* Padding interno para criar espaço ao redor do ícone */
+        }
+
+        /* --- Caixa de Orçamento Personalizado --- */
+        #whatsapp-sugestao-input.form-control {
+          /* Garante bordas arredondadas padrão do Bootstrap para o textarea */
+          border-radius: 0.375rem;
+        }
+        .quote-box {
+            border: 1px solid #dee2e6; /* Adiciona uma borda sutil à caixa */
+        }
+        /* Estilo para o ícone WhatsApp dentro do botão de envio */
+        #send-whatsapp-btn i.material-icons {
+            font-size: 1.3em; /* Tamanho relativo ao texto do botão */
+            margin-right: 8px; /* Espaço entre ícone e texto */
+            color: white; /* Cor do ícone igual ao texto do botão (se o botão for .btn-primary ou .btn-success) */
+            /* Alinhamento vertical já tratado pelo display:flex do .btn */
+        }
+
+        /* --- Link do Instagram --- */
+        .instagram-link {
+          display: inline-flex; /* Permite alinhar ícone e texto na mesma linha */
+          align-items: center; /* Alinha verticalmente */
+          text-align: center;
+          margin-top: 1rem; /* Espaço acima */
+          margin-bottom: 2rem; /* Espaço abaixo */
+          font-weight: 600; /* Peso da fonte */
+          color: var(--bs-primary); /* Cor primária */
+          text-decoration: none;
+          font-size: 1.1rem; /* Tamanho da fonte */
+          padding: 0.5rem 1rem; /* Padding interno */
+          border: 1px solid transparent; /* Borda base transparente */
+          border-radius: 50px; /* Cantos arredondados */
+          transition: all 0.3s ease; /* Animação suave */
+        }
+        .instagram-link i {
+          vertical-align: middle; /* Ajuda no alinhamento vertical (embora flexbox já faça isso) */
+          margin-right: 8px; /* Espaço entre ícone e texto */
+        }
+        .instagram-link:hover {
+          text-decoration: none; /* Remove sublinhado */
+          background-color: rgba(var(--bs-primary-rgb), 0.1); /* Fundo levemente colorido */
+          border-color: rgba(var(--bs-primary-rgb), 0.2); /* Borda levemente colorida */
+          color: var(--evo-link-hover-color); /* Cor de hover definida */
+        }
+
+
+        /* ============================
+           7. ESTILOS ESPECÍFICOS DE SEÇÃO
+           ============================ */
+
+        /* --- Seção Hero (#top) --- */
+        .hero-platform-icons {
+            /* Substitui o estilo inline para a altura dos ícones das plataformas */
+            height: 50px;
+            width: auto; /* Mantém proporção */
+        }
+
+        /* --- Utilitário de Fundo --- */
+        .bg-light-gray {
+          /* Cor de fundo cinza claro definida na variável :root */
+          /* Uso de !important deve ser cuidadoso, mas aqui garante que sobrescreva o padrão do Bootstrap se necessário */
+          background-color: var(--evo-light-gray) !important;
+        }
+
+        /* --- Seção Diferenciais (#valores-diferenciais) --- */
+        #valores-diferenciais video.img-fluid {
+          /* Estilo específico para vídeos nesta seção */
+          max-width: 100%; /* Garante que não ultrapasse o container */
+          height: auto; /* Mantém a proporção */
+          display: block; /* Evita espaços extras */
+          border-radius: 15px; /* Mesma borda arredondada dos cards */
+        }
+
+        /* --- Seção Final com Imagem --- */
+        .final-image-container img {
+          /* Estilo para a imagem grande na seção final */
+          display: block; /* Evita espaços extras */
+          margin: 30px auto; /* Centraliza horizontalmente com margens superior/inferior */
+          max-width: 700px; /* Largura máxima */
+          width: 100%; /* Ocupa 100% da largura disponível até o máximo */
+          height: auto; /* Mantém proporção */
+          border-radius: 15px; /* Cantos arredondados */
+          box-shadow: none; /* Sem sombra */
+          border: 1px solid #eee; /* Borda sutil */
+        }
+
+
+        /* ============================
+           8. RODAPÉ (FOOTER)
+           ============================ */
+        .site-footer {
+          /* Estilo principal do rodapé */
+          background-image: linear-gradient(to bottom, #1a73e8, #1256a1); /* Gradiente de fundo */
+          color: white; /* Cor padrão do texto no rodapé */
+          width: 100%;
+          margin-top: 3rem; /* Espaço acima do rodapé */
+          padding-top: 3rem; /* Espaçamento interno superior */
+          padding-bottom: 1.5rem; /* Espaçamento interno inferior */
+        }
+
+        .footer-content {
+          /* Container para limitar a largura do conteúdo do rodapé */
+          max-width: 1140px; /* Largura máxima comum (similar ao .container-lg) */
+          margin: 0 auto; /* Centraliza o container */
+        }
+
+        .footer-logo img {
+          max-height: 50px; /* Altura máxima do logo no rodapé */
+          width: auto;
+          filter: brightness(0) invert(1); /* Inverte as cores para tornar o logo branco */
+        }
+        .footer-tagline {
+          /* Estilo para a pequena descrição abaixo do logo */
+          color: #e0e0e0; /* Cor de texto ligeiramente mais clara que branco puro */
+        }
+
+        .footer-links h5 {
+          /* Estilo para os títulos das colunas de links */
+          color: #ffffff;
+          margin-bottom: 1rem;
+          font-weight: 600;
+          font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+          /* Remove padding padrão da lista (Bootstrap 'list-unstyled' já faz isso no HTML) */
+          padding: 0;
+        }
+        .footer-links ul li {
+          margin-bottom: 0.5rem; /* Espaçamento entre os itens da lista */
+        }
+        .footer-links a {
+          /* Estilo específico para links dentro das colunas do rodapé */
+          color: #e0e0e0;
+          text-decoration: none;
+          transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+          color: #ffffff; /* Branco puro no hover */
+          text-decoration: underline;
+        }
+
+        .copyright {
+          /* Estilo para a linha de direitos autorais */
+          font-size: 0.85rem; /* Tamanho pequeno */
+          color: #c0c0c0; /* Cinza claro */
+          margin-top: 2rem; /* Espaço acima */
+          padding-top: 1.5rem; /* Espaço interno acima (após a linha) */
+          border-top: 1px solid rgba(255, 255, 255, 0.2); /* Linha divisória sutil */
+        }
+        .copyright a {
+          /* Estilo para links dentro do copyright (ex: Política de Privacidade) */
+          color: #d0d0d0; /* Cor ligeiramente diferente */
+        }
+        .copyright a:hover {
+          color: #ffffff;
+        }
+
+        address.d-inline {
+          /* Garante que a tag <address> não tenha estilos de bloco padrão e remove itálico */
+          font-style: normal;
+        }
+
+
+        /* ============================
+           9. CONSIDERAÇÕES DE ACESSIBILIDADE
+           ============================ */
+        /*
+         * LEMBRETE IMPORTANTE: ACESSIBILIDADE (A11y)
+         *
+         * - CONTRASTE DE COR: Verifique se todas as combinações de texto/fundo
+         * atendem aos requisitos mínimos do WCAG (AA ou AAA). Use ferramentas
+         * como WebAIM Contrast Checker ou as ferramentas do desenvolvedor do navegador.
+         * Atenção especial às cores personalizadas (ex: var(--bs-primary) sobre branco).
+         *
+         * - INDICADOR DE FOCO VISÍVEL: Garanta que usuários que navegam via teclado
+         * possam ver claramente qual elemento está em foco. Os padrões do navegador
+         * podem ser insuficientes. Use `:focus-visible` para aplicar estilos de foco
+         * apenas para navegação por teclado/assistiva, evitando poluir a interface
+         * para usuários de mouse.
+         *
+         * Exemplo de Estilo de Foco Visível (Ajuste as cores/estilos conforme seu design):
+         *
+         * a:focus-visible,
+         * button:focus-visible,
+         * input:focus-visible,
+         * textarea:focus-visible,
+         * [tabindex]:not([tabindex="-1"]):focus-visible { / * Inclui elementos com tabindex * /
+         * outline: 3px solid #0a58ca; / * Um contorno claro e contrastante * /
+         * outline-offset: 2px;      / * Afasta o contorno do elemento * /
+         * box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3); / * Opcional: um brilho suave * /
+         * border-radius: 2px;       / * Pode ajustar para combinar com o elemento * /
+         * }
+         * / * Remove o outline padrão se estiver usando box-shadow ou um outline personalizado visível * /
+         * a:focus, button:focus, input:focus, textarea:focus, [tabindex]:not([tabindex="-1"]):focus {
+         * outline: none; / * Ou outline: 0; * /
+         * }
+         *
+        */
+
+
+        /* ============================
+           10. MEDIA QUERIES (RESPONSIVIDADE)
+           ============================ */
+
+        /* Medium devices (tablets, menos de 992px) */
+        @media (max-width: 991.98px) {
+          .navbar-nav {
+            text-align: center; /* Centraliza links no menu mobile colapsado */
+            margin-top: 1rem; /* Espaço acima dos links quando colapsado */
+          }
+          .navbar-nav .nav-link {
+            margin-left: 0; /* Remove margem esquerda no mobile */
+            display: block; /* Links ocupam linha inteira */
+            padding: 0.75rem 1rem; /* Ajusta padding para toque */
+          }
+          .navbar-nav .nav-link::after {
+            display: none; /* Esconde o efeito de sublinhado no menu mobile */
+          }
+          .site-footer {
+            /* Ajusta padding do rodapé */
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+          }
+          .footer-links h5 {
+            margin-top: 1.5rem; /* Adiciona espaço acima dos títulos no rodapé em telas médias */
+          }
+          #orcamento .col-md-6 {
+            /* Garante 2 colunas para orçamento em telas médias */
+            flex: 0 0 50%;
+            max-width: 50%;
+          }
+          #clientes .col-lg-4 { /* Ajusta para selecionar a coluna correta para depoimentos */
+            margin-bottom: 1.5rem; /* Adiciona espaço inferior entre depoimentos empilhados parcialmente */
+          }
+        }
+
+        /* Small devices (landscape phones, menos de 768px) */
+        @media (max-width: 767.98px) {
+          body {
+             /* O padding-top já foi ajustado anteriormente */
+          }
+          /* Ajusta tamanho dos cabeçalhos */
+          h1 { font-size: calc(1.325rem + 1.5vw); }
+          h2 { font-size: calc(1.275rem + 0.8vw); }
+
+          /* Garante centralização onde classes -lg eram usadas para alinhar à esquerda */
+          .text-lg-start { text-align: center !important; }
+          .justify-content-lg-start { justify-content: center !important;}
+
+          .final-image-container img { max-width: 95%; } /* Imagem final um pouco menor */
+
+          /* Empilha os cards de Orçamento (1 coluna) */
+          #orcamento .col-md-6 { /* Seleciona as colunas de orçamento */
+            flex: 0 0 100%;
+            max-width: 100%;
+          }
+          /* Empilha os cards de Depoimentos (1 coluna) */
+           #clientes .col-md-6 { /* Seleciona as colunas de depoimentos */
+             flex: 0 0 100%;
+             max-width: 100%;
+             margin-bottom: 1.5rem; /* Mantém espaço entre depoimentos empilhados */
+          }
+
+          /* Reduz padding das seções em telas menores */
+          section {
+            padding-left: 3%;
+            padding-right: 3%;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+          }
+          /* Garante que py-5 também use o padding reduzido */
+          .py-5 {
+            padding-top: 3rem !important;
+            padding-bottom: 3rem !important;
+          }
+        }
+
+        /* Extra small devices (portrait phones, menos de 576px) */
+        @media (max-width: 575.98px) {
+          /* Ajusta tamanho e padding de botões */
+          .btn {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+          }
+          /* Ajusta tamanho do texto lead */
+          p.lead {
+            font-size: 1.1rem;
+          }
+          /* Ajusta tamanho do H4 nos cards de orçamento (preço) */
+          .card h4.pricing-value {
+            font-size: 1.6rem;
+          }
+          /* Diminui logo no rodapé */
+          .footer-logo img {
+            max-height: 40px;
+          }
+          /* Diminui texto do copyright */
+          .copyright {
+            font-size: 0.75rem;
+          }
+          /* Diminui botões de sugestão */
+          .btn-suggestion {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.7rem;
+          }
+          /* Ajusta tamanho e padding do botão WhatsApp */
+          .whatsapp {
+            padding: 8px 15px;
+          }
+           .whatsapp .whatsapp-icon { /* Ajusta tamanho do ícone no mobile */
+            font-size: 22px;
+            margin-right: 6px;
+         }
+        }
+
+    </style>
+
     </head>
 
 <body>
@@ -19,17 +755,15 @@
             <div class="container">
                 <a class="navbar-brand" href="#top">
                     <img src="assets/images/image02.jpg" alt="Logotipo EVO Softwares" />
-                    </a>
-
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
-                    </button>
-
+                </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#sobre">Sobre</a>
-                            </li>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#valores-diferenciais">Diferenciais</a>
                         </li>
@@ -49,8 +783,9 @@
     </header>
     <main>
         <a class="whatsapp" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" target="_blank" rel="noopener noreferrer" title="Fale Conosco pelo WhatsApp">
-            <img src="assets/images/whatsapp-icon.png" alt="" aria-hidden="true"> <span>Fale Conosco</span>
-            </a>
+            <i class="material-icons whatsapp-icon" aria-hidden="true">whatsapp</i>
+            <span>Fale Conosco</span>
+        </a>
         <section id="top" class="py-5 bg-white">
             <div class="container">
                 <div class="row align-items-center gy-4">
@@ -61,12 +796,12 @@
                         <div class="d-flex gap-2 justify-content-center justify-content-lg-start mb-4 flex-wrap">
                             <a class="btn btn-light" href="https://wa.me/5511983362246?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20site%20e%20desejo%20um%20or%C3%A7amento%20personalizado" target="_blank" rel="noopener noreferrer">Falar com especialista</a>
                             <a href="#orcamento" class="btn btn-primary">Quanto custa meu app</a>
-                            </div>
-                        <img src="assets/images/image12.jpg" class="img-fluid mt-4 rounded d-none d-lg-block" alt="Avaliações 5 estrelas de clientes da EVO Softwares">
                         </div>
+                        <img src="assets/images/image12.jpg" class="img-fluid mt-4 rounded d-none d-lg-block" alt="Avaliações 5 estrelas de clientes da EVO Softwares">
+                    </div>
                     <div class="col-lg-6 mt-4 mt-lg-0">
                         <img src="assets/images/image14.jpg" class="img-fluid rounded" alt="Interface de aplicativo mobile exibida em um smartphone">
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -79,7 +814,7 @@
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1: Manifesto"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2: Como Trabalhamos"></button>
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3: Metáfora"></button>
-                        </div>
+                    </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="p-3 p-md-5 text-center col-lg-8 mx-auto">
@@ -100,19 +835,13 @@
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                         <i class="material-icons custom-icon" aria-hidden="true">arrow_back_ios</i>
-                        <span class="visually-hidden">Anterior</span>
-                        </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                         <i class="material-icons custom-icon" aria-hidden="true">arrow_forward_ios</i>
-                        <span class="visually-hidden">Próximo</span>
-                    </button>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"> <i class="material-icons custom-icon" aria-hidden="true">arrow_back_ios</i> <span class="visually-hidden">Anterior</span> </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"> <i class="material-icons custom-icon" aria-hidden="true">arrow_forward_ios</i> <span class="visually-hidden">Próximo</span> </button>
                 </div>
             </div>
         </section>
         <section id="valores-diferenciais" class="py-5 bg-white">
-            <div class="container">
+           <div class="container">
                 <p class="text-primary text-uppercase small mb-2 text-center">O que nos torna únicos</p>
                 <h2 class="text-center mb-5">Nossos <span class="text-primary">Diferenciais</span></h2>
                 <div class="row align-items-center gy-5">
@@ -128,7 +857,7 @@
                     <div class="col-lg-6 text-center">
                         <video class="img-fluid" autoplay loop muted playsinline title="Vídeo demonstrando app em múltiplas plataformas">
                             <source src="assets/images/video02.mp4" type="video/mp4">
-                            Seu navegador não suporta o elemento de vídeo. (Texto fallback caso o vídeo não carregue)
+                            Seu navegador não suporta o elemento de vídeo. (Vídeo sobre Multiplataforma)
                         </video>
                     </div>
                     <div class="col-lg-6 order-lg-2">
@@ -154,7 +883,7 @@
                     </div>
                     <div class="col-lg-6 text-center">
                         <video class="img-fluid" autoplay loop muted playsinline title="Vídeo mostrando dashboard de acompanhamento de projeto">
-                             <source src="assets/images/video05.mp4" type="video/mp4">
+                            <source src="assets/images/video05.mp4" type="video/mp4">
                             Seu navegador não suporta o elemento de vídeo. (Vídeo sobre Acompanhamento)
                         </video>
                     </div>
@@ -169,15 +898,15 @@
                     </div>
                     <div class="col-lg-6 text-center order-lg-1">
                         <video class="img-fluid" autoplay loop muted playsinline title="Vídeo abstrato representando flexibilidade e adaptação">
-                             <source src="assets/images/video06.mp4" type="video/mp4">
+                            <source src="assets/images/video06.mp4" type="video/mp4">
                             Seu navegador não suporta o elemento de vídeo. (Vídeo sobre Flexibilidade)
                         </video>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
         <section id="projetos" class="py-5 bg-light-gray">
-            <div class="container">
+           <div class="container">
                 <p class="text-primary text-uppercase small mb-2 text-center">Nosso Portfólio</p>
                 <h2 class="text-center mb-3">Projetos que <span class="text-primary">Transformam</span></h2>
                 <p class="text-center col-md-8 mx-auto mb-5">Com +15 anos de experiência e +1000 projetos entregues, temos a expertise para transformar sua visão em realidade digital. Colaboramos com diversos setores, sempre focados em inovação e resultados.</p>
@@ -189,22 +918,21 @@
                     <img src="assets/images/09732275.jpg" class="img-fluid rounded" alt="Exemplo de projeto de aplicativo 5">
                     <img src="assets/images/947705e0.jpg" class="img-fluid rounded" alt="Exemplo de projeto de aplicativo 6">
                 </div>
-                </div>
+            </div>
         </section>
         <section id="clientes" class="py-5 bg-white">
-             <div class="container">
+            <div class="container">
                 <p class="text-primary text-uppercase small mb-2 text-center">Qualidade Comprovada</p>
                 <h2 class="text-center mb-5">O que Nossos <span class="text-primary">Clientes</span> Dizem</h2>
-
                 <div class="row justify-content-center gy-4">
                     <div class="col-lg-4 col-md-6 d-flex">
                         <div class="card p-4 h-100 testimonial-card">
-                             <div class="card-body d-flex flex-column">
+                            <div class="card-body d-flex flex-column">
                                 <i class="material-icons mx-auto testimonial-icon" aria-hidden="true">format_quote</i>
                                 <p class="fst-italic mt-3 card-text testimonial-text">"A EVO transformou nossa ideia inicial em um aplicativo robusto e intuitivo muito mais rápido do que esperávamos. O acompanhamento transparente foi um diferencial enorme!"</p>
                                 <p class="fw-bold mb-0 mt-auto testimonial-author">João Silva</p>
                                 <span class="text-muted testimonial-title">CEO, Startup Inovadora</span>
-                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 d-flex">
@@ -227,7 +955,7 @@
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </section>
         <section id="orcamento" class="py-5 bg-light-gray">
@@ -235,10 +963,9 @@
                 <p class="text-primary text-uppercase small mb-2 text-center">Investimento Inteligente</p>
                 <h2 class="text-center mb-3">Quanto Custa Tirar Sua Ideia do Papel?</h2>
                 <p class="text-center col-md-8 mx-auto mb-5">Soluções flexíveis e transparentes para transformar sua ideia em realidade digital, do conceito ao suporte contínuo.</p>
-
                 <div class="row justify-content-center g-4">
                     <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-                         <div class="card p-4 w-100 pricing-card">
+                        <div class="card p-4 w-100 pricing-card">
                             <div class="card-body d-flex flex-column">
                                 <i class="material-icons pricing-icon" aria-hidden="true">palette</i>
                                 <h3 class="card-title">Design de Impacto</h3>
@@ -277,7 +1004,7 @@
                                 <h3 class="card-title">Projeto Sob Medida</h3>
                                 <p class="card-text">Planejamos e desenvolvemos seu app do zero com escopo, prazo e investimento definidos juntos. Clareza total do início ao fim.</p>
                                 <h4 class="mt-auto pricing-value">Sob Consulta</h4>
-                                 <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
+                                <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Solicitar Orçamento</a>
                             </div>
                         </div>
                     </div>
@@ -288,7 +1015,7 @@
                                 <h3 class="card-title">Suporte & Manutenção</h3>
                                 <p class="card-text">Garanta a estabilidade, segurança e atualização contínua do seu app. Nosso time cuida da saúde técnica por uma taxa mensal fixa.</p>
                                 <h4 class="mt-auto pricing-value">Plano Mensal</h4>
-                                 <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Manter meu App Seguro</a>
+                                <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Manter meu App Seguro</a>
                             </div>
                         </div>
                     </div>
@@ -299,11 +1026,11 @@
                                 <h3 class="card-title">Flexibilidade Total</h3>
                                 <p class="card-text">Acesso flexível ao nosso time técnico especialista. Ideal para necessidades pontuais, consultoria ou para complementar sua equipe.</p>
                                 <h4 class="mt-auto pricing-value">Por Hora</h4>
-                                 <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Contratar Horas</a>
+                                <a class="btn btn-primary mt-3" href="#" target="_blank" rel="noopener noreferrer">Contratar Horas</a>
                             </div>
                         </div>
                     </div>
-                    </div>
+                </div>
 
                 <div class="mt-5 text-center p-4 bg-white rounded shadow-sm col-lg-8 mx-auto quote-box">
                     <h4 class="mb-3">Precisa de algo diferente?</h4>
@@ -329,11 +1056,11 @@
                 </div>
         </section>
         <section class="final-image-container py-5 bg-white">
-             <div class="container text-center">
+            <div class="container text-center">
                 <h2 class="mb-4">Conecte-se com a <span class="text-primary">Inovação</span></h2>
-                 <img src="assets/images/image09.jpg" class="img-fluid rounded" alt="Ilustração abstrata representando conexões e tecnologia">
+                <img src="assets/images/image09.jpg" class="img-fluid rounded" alt="Ilustração abstrata representando conexões e tecnologia">
                 <a class="instagram-link" href="https://www.instagram.com/evo.programadoresdeapps" target="_blank" rel="noopener noreferrer">
-                     <i class="material-icons" aria-hidden="true">camera_alt</i>
+                    <i class="material-icons" aria-hidden="true">camera_alt</i>
                     <span>Siga-nos no Instagram</span>
                 </a>
             </div>
@@ -374,22 +1101,115 @@
                         <li><a href="https://www.instagram.com/evo.programadoresdeapps" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                         <li>
                             <address class="d-inline">São Paulo, SP - Brasil</address>
-                            </li>
+                        </li>
                     </ul>
                 </div>
-                </div>
-
+            </div>
             <div class="row">
                 <div class="col-12 text-center copyright">
-                    © <span id="current-year">ANO</span>
-                    EVO CLOUD APPS LTDA. Todos os direitos reservados.
-                    </div>
+                    © <span id="current-year">ANO</span> EVO CLOUD APPS LTDA. Todos os direitos reservados.
+                </div>
             </div>
-            </div>
+        </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script src="script.js" defer></script>
+    <script>
+        /**
+         * script.js (Embutido)
+         *
+         * Contém os scripts JavaScript personalizados para a landing page EVO.
+         */
+
+        'use strict'; // Ativa o modo estrito do JavaScript.
+
+        /**
+         * @function setCurrentYear
+         * @description Atualiza o conteúdo do elemento com ID 'current-year' para exibir o ano atual.
+         */
+        function setCurrentYear() {
+          const yearElement = document.getElementById('current-year');
+          if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+          } else {
+            console.warn("Elemento com ID 'current-year' não encontrado no DOM.");
+          }
+        }
+
+        /**
+         * @function setupNavbarCollapse
+         * @description Configura o fechamento automático da navbar mobile ao clicar em um link.
+         */
+        function setupNavbarCollapse() {
+          const navbarCollapse = document.getElementById('navbarNav');
+          if (navbarCollapse) {
+            const navLinks = navbarCollapse.querySelectorAll('.nav-link');
+            let bsCollapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+            if (!bsCollapseInstance) {
+              bsCollapseInstance = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            }
+            navLinks.forEach(link => {
+              link.addEventListener('click', () => {
+                const toggler = document.querySelector('.navbar-toggler');
+                if (toggler && getComputedStyle(toggler).display !== 'none') {
+                  if (navbarCollapse.classList.contains('show')) {
+                    if (bsCollapseInstance) {
+                      bsCollapseInstance.hide();
+                    }
+                  }
+                }
+              });
+            });
+          } else {
+            console.warn("Elemento da Navbar com ID 'navbarNav' não encontrado.");
+          }
+        }
+
+        /**
+         * @function setupWhatsAppIntegration
+         * @description Configura a interatividade dos botões de sugestão e envio para WhatsApp.
+         */
+        function setupWhatsAppIntegration() {
+          const suggestionButtons = document.querySelectorAll('.btn-suggestion');
+          const whatsappInput = document.getElementById('whatsapp-sugestao-input');
+          const sendWhatsappBtn = document.getElementById('send-whatsapp-btn');
+
+          // --- IMPORTANTE: Defina seu número de WhatsApp aqui ---
+          const seuNumeroWhatsApp = "5511983362246"; // <<<<----- SUBSTITUA AQUI SEU NÚMERO REAL!!!!!
+          const baseWhatsappUrl = `https://wa.me/${seuNumeroWhatsApp}?text=`;
+          // --- Fim da configuração do número ---
+
+          if (whatsappInput && sendWhatsappBtn) {
+            suggestionButtons.forEach(button => {
+              button.addEventListener('click', () => {
+                const suggestion = button.textContent;
+                whatsappInput.value = `Preciso de um orçamento para um app tipo: ${suggestion}. `;
+                whatsappInput.focus();
+              });
+            });
+
+            sendWhatsappBtn.addEventListener('click', () => {
+              let message = whatsappInput.value.trim();
+              if (!message) {
+                message = "Olá, vim através do site e desejo um orçamento personalizado.";
+              }
+              const encodedMessage = encodeURIComponent(message);
+              window.open(baseWhatsappUrl + encodedMessage, '_blank', 'noopener,noreferrer');
+            });
+          } else {
+            console.warn("Elementos de integração com WhatsApp não encontrados (whatsapp-sugestao-input ou send-whatsapp-btn).");
+          }
+        }
+
+        // --- INICIALIZAÇÃO DAS FUNCIONALIDADES ---
+        // Adiciona um ouvinte para garantir que o DOM esteja pronto antes de executar os scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            setCurrentYear();
+            setupNavbarCollapse();
+            setupWhatsAppIntegration();
+        });
+
+    </script>
     </body>
 
 </html>
