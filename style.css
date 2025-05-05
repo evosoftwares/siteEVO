@@ -246,8 +246,7 @@ a:hover {
   font-size: 1.5rem;
 }
 
-.card h4.pricing-value {
-  /* Estilo específico para o preço (H4) nos cards de orçamento */
+.card h4.pricing-value { /* Specific to pricing cards */
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -420,11 +419,11 @@ a:hover {
     border: 1px solid #dee2e6; /* Adiciona uma borda sutil à caixa */
     /* Estilos de padding, background, etc., já aplicados via classes Bootstrap no HTML */
 }
+/* Estilo para o ícone WhatsApp dentro do botão de envio */
 #send-whatsapp-btn i.material-icons {
-    /* Estilo específico para o ícone dentro do botão 'Enviar para Whatsapp' */
     font-size: 1.3em; /* Tamanho relativo ao texto do botão */
     margin-right: 8px; /* Espaço entre ícone e texto */
-    color: white; /* Cor do ícone igual ao texto do botão */
+    color: white; /* Cor do ícone igual ao texto do botão (se o botão for .btn-primary ou .btn-success) */
     /* Alinhamento vertical já tratado pelo display:flex do .btn */
 }
 
@@ -569,8 +568,8 @@ a:hover {
 }
 
 address.d-inline {
-  /* Garante que a tag <address> não tenha estilos de bloco padrão */
-  font-style: normal; /* Remove itálico padrão da tag <address> */
+  /* Garante que a tag <address> não tenha estilos de bloco padrão e remove itálico */
+  font-style: normal;
 }
 
 
@@ -603,9 +602,9 @@ address.d-inline {
  * box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.3); / * Opcional: um brilho suave * /
  * border-radius: 2px;       / * Pode ajustar para combinar com o elemento * /
  * }
- * / * Remove o outline padrão se estiver usando box-shadow para foco * /
+ * / * Remove o outline padrão se estiver usando box-shadow ou um outline personalizado visível * /
  * a:focus, button:focus, input:focus, textarea:focus, [tabindex]:not([tabindex="-1"]):focus {
- * outline: none;
+ * outline: none; / * Ou outline: 0; * /
  * }
  *
 */
@@ -615,7 +614,7 @@ address.d-inline {
    10. MEDIA QUERIES (RESPONSIVIDADE)
    ============================ */
 
-/* Medium devices (tablets, >= 768px e < 992px) */
+/* Medium devices (tablets, menos de 992px) */
 @media (max-width: 991.98px) {
   .navbar-nav {
     text-align: center; /* Centraliza links no menu mobile colapsado */
@@ -642,16 +641,15 @@ address.d-inline {
     flex: 0 0 50%;
     max-width: 50%;
   }
-  #clientes .col-lg-4 {
-    /* Ajusta margem inferior dos depoimentos */
-    margin-bottom: 1.5rem;
+  #clientes .col-lg-4 { /* Ajusta para selecionar a coluna correta para depoimentos */
+    margin-bottom: 1.5rem; /* Adiciona espaço inferior entre depoimentos empilhados parcialmente */
   }
 }
 
-/* Small devices (landscape phones, >= 576px e < 768px) */
+/* Small devices (landscape phones, menos de 768px) */
 @media (max-width: 767.98px) {
   body {
-     /* O padding-top de 70px já é o padrão definido */
+     /* O padding-top de 70px já é o padrão definido anteriormente */
   }
   /* Ajusta tamanho dos cabeçalhos */
   h1 { font-size: calc(1.325rem + 1.5vw); }
@@ -664,15 +662,15 @@ address.d-inline {
   .final-image-container img { max-width: 95%; } /* Imagem final um pouco menor */
 
   /* Empilha os cards de Orçamento (1 coluna) */
-  #orcamento .col-md-6 {
+  #orcamento .col-md-6 { /* Seleciona as colunas de orçamento */
     flex: 0 0 100%;
     max-width: 100%;
   }
   /* Empilha os cards de Depoimentos (1 coluna) */
-   #clientes .col-md-6 {
+   #clientes .col-md-6 { /* Seleciona as colunas de depoimentos */
      flex: 0 0 100%;
      max-width: 100%;
-     margin-bottom: 1.5rem;
+     margin-bottom: 1.5rem; /* Mantém espaço entre depoimentos empilhados */
   }
 
   /* Reduz padding das seções em telas menores */
@@ -689,7 +687,7 @@ address.d-inline {
   }
 }
 
-/* Extra small devices (portrait phones, < 576px) */
+/* Extra small devices (portrait phones, menos de 576px) */
 @media (max-width: 575.98px) {
   /* Ajusta tamanho e padding de botões */
   .btn {
@@ -700,7 +698,7 @@ address.d-inline {
   p.lead {
     font-size: 1.1rem;
   }
-  /* Ajusta tamanho do H4 nos cards (preço) */
+  /* Ajusta tamanho do H4 nos cards de orçamento (preço) */
   .card h4.pricing-value {
     font-size: 1.6rem;
   }
