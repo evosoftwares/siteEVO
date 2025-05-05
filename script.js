@@ -90,7 +90,7 @@ function setupWhatsAppIntegration() {
 
   // --- IMPORTANTE: Defina seu número de WhatsApp aqui ---
   // Substitua '5511999999999' pelo seu número completo com código do país e DDD.
-  const seuNumeroWhatsApp = "5511983362246"; // <-- SUBSTITUA AQUI SEU NÚMERO
+  const seuNumeroWhatsApp = "5511983362246"; // <<<<----- SUBSTITUA AQUI SEU NÚMERO REAL!!!!!
   const baseWhatsappUrl = `https://wa.me/${seuNumeroWhatsApp}?text=`;
   // --- Fim da configuração do número ---
 
