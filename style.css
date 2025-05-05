@@ -38,7 +38,7 @@ body {
   color: var(--evo-text-color); /* Define a cor padrão do texto */
   line-height: 1.6; /* Define a altura da linha para melhor legibilidade */
   overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
-  padding-top: 70px; /* Adiciona padding no topo para compensar a navbar fixa (padrão, ajustado em media queries) */
+  padding-top: 0px; /* Adiciona padding no topo para compensar a navbar fixa (padrão, ajustado em media queries) */
 }
 
 h1, h2, h3, h4, h5, h6 {
