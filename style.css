@@ -357,8 +357,10 @@ a:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   position: fixed;
-  bottom: 25px;
-  right: 25px;
+  /* Ajuste estes valores para aumentar/diminuir a distância das bordas */
+  bottom: 35px;
+  right: 35px;
+  /* --- */
   z-index: 1000;
  }
 
@@ -369,7 +371,6 @@ a:hover {
  }
 
  .floating-whatsapp-button span {
-    /* Esconde o texto, se houver */
     display: none;
  }
 
