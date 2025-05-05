@@ -344,6 +344,46 @@ a:hover {
   font-weight: 600;
 }
 
+.floating-whatsapp-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  background-color: #25D366;
+  color: #FFFFFF;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+ }
+
+ .floating-whatsapp-button svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+ }
+
+ .floating-whatsapp-button span {
+    /* Esconde o texto, se houver */
+    display: none;
+ }
+
+ .floating-whatsapp-button:hover {
+  background-color: #1DA851;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+ }
+
+ .floating-whatsapp-button:active {
+  transform: scale(1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+ }
+
 /* --- Grid de Imagens (Portfólio) --- */
 .grid-imagens {
   display: grid; /* Ativa o layout de grid CSS */
